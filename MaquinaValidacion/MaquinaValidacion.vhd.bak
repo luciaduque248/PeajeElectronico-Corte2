@@ -1,0 +1,42 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MaquinaValidacion is
+    port (
+        -- Entradas
+        identificacion: in std_logic_vector(4 downto 0); -- Identificación TAG REID/NFC del vehículo
+        -- Salidas
+        identificacion_valida: out std_logic
+    );
+end entity MaquinaValidacion;
+
+architecture MaquinaValidacion_arch of MaquinaValidacion is
+    -- Definición de los estados de la submáquina de estado de validación
+    type estado_validacion is (inicio, esperando_identificacion, validacion_exitosa, validacion_fallida);
+    signal estado_actual, estado_siguiente: estado_validacion;
+
+begin
+    -- Proceso de la submáquina de estado de validación
+    proceso_validacion : process(identificacion)
+    begin
+        case estado_actual is
+            when inicio =>
+                estado_actual <= esperando_identificacion;
+            when esperando_identificacion =>
+                if identificacion = "11111" then -- Identificación válida (ejemplo)
+                    estado_siguiente <= validacion_exitosa;
+                else
+                    estado_siguiente <= validacion_fallida;
+                end if;
+            when validacion_exitosa =>
+                estado_siguiente <= inicio; -- Reiniciar la submáquina
+            when validacion_fallida =>
+                estado_siguiente <= inicio; -- Reiniciar la submáquina
+        end case;
+    end process proceso_validacion;
+
+    -- Lógica de salida
+    identificacion_valida <= '1' when estado_actual = validacion_exitosa else
+                              '0';
+
+end architecture MaquinaValidacion_arch;

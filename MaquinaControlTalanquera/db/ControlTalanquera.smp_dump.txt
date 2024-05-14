@@ -1,0 +1,20 @@
+
+State Machine - |ControlTalanquera|estado_actual
+Name estado_actual.esperando_salida estado_actual.abriendo_barrera_salida estado_actual.cerrando_barrera_entrada estado_actual.esperando_paso estado_actual.abriendo_barrera_entrada estado_actual.validando_identificacion estado_actual.esperando_vehiculo 
+estado_actual.esperando_vehiculo 0 0 0 0 0 0 0 
+estado_actual.validando_identificacion 0 0 0 0 0 1 1 
+estado_actual.abriendo_barrera_entrada 0 0 0 0 1 0 1 
+estado_actual.esperando_paso 0 0 0 1 0 0 1 
+estado_actual.cerrando_barrera_entrada 0 0 1 0 0 0 1 
+estado_actual.abriendo_barrera_salida 0 1 0 0 0 0 1 
+estado_actual.esperando_salida 1 0 0 0 0 0 1 
+
+State Machine - |ControlTalanquera|estado_siguiente
+Name estado_siguiente.esperando_salida estado_siguiente.abriendo_barrera_salida estado_siguiente.cerrando_barrera_entrada estado_siguiente.esperando_paso estado_siguiente.abriendo_barrera_entrada estado_siguiente.validando_identificacion estado_siguiente.esperando_vehiculo 
+estado_siguiente.esperando_vehiculo 0 0 0 0 0 0 0 
+estado_siguiente.validando_identificacion 0 0 0 0 0 1 1 
+estado_siguiente.abriendo_barrera_entrada 0 0 0 0 1 0 1 
+estado_siguiente.esperando_paso 0 0 0 1 0 0 1 
+estado_siguiente.cerrando_barrera_entrada 0 0 1 0 0 0 1 
+estado_siguiente.abriendo_barrera_salida 0 1 0 0 0 0 1 
+estado_siguiente.esperando_salida 1 0 0 0 0 0 1 

@@ -1,0 +1,14 @@
+
+State Machine - |MaquinaTiempoPaso|estado_actual
+Name estado_actual.paso_exitoso estado_actual.esperando_paso estado_actual.vehiculo_detectado estado_actual.esperando_vehiculo 
+estado_actual.esperando_vehiculo 0 0 0 0 
+estado_actual.vehiculo_detectado 0 0 1 1 
+estado_actual.esperando_paso 0 1 0 1 
+estado_actual.paso_exitoso 1 0 0 1 
+
+State Machine - |MaquinaTiempoPaso|estado_siguiente
+Name estado_siguiente.paso_exitoso estado_siguiente.esperando_paso estado_siguiente.vehiculo_detectado estado_siguiente.esperando_vehiculo 
+estado_siguiente.esperando_vehiculo 0 0 0 0 
+estado_siguiente.vehiculo_detectado 0 0 1 1 
+estado_siguiente.esperando_paso 0 1 0 1 
+estado_siguiente.paso_exitoso 1 0 0 1 

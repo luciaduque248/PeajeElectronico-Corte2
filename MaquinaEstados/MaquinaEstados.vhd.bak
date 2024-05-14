@@ -1,0 +1,64 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MaquinaEstados is
+    port (
+        clk: in std_logic;
+        reset: in std_logic;
+        vehicle_detected: in std_logic;
+        identification_valid: in std_logic;
+        vehicle_passed: in std_logic;
+        barrier_open: out std_logic;
+        semaphore_open: out std_logic
+    );
+end entity MaquinaEstados;
+
+architecture MaquinaEstados_arch of MaquinaEstados is
+    -- Definición de los estados de la máquina de estado principal
+    type estado_principal is (inicio, deteccion_vehiculo, validacion_identificacion, cobro_peaje, paso_vehiculo, finalizacion);
+    signal estado_actual, estado_siguiente: estado_principal;
+
+begin
+    -- Proceso de la máquina de estado principal
+    proceso(clk, reset)
+    begin
+        if reset = '1' then
+            estado_actual <= inicio; -- Estado inicial
+        elsif rising_edge(clk) then
+            estado_actual <= estado_siguiente; -- Actualización del estado actual
+        end if;
+    end proceso;
+
+    -- Lógica de transición entre estados
+    proceso(estado_actual, vehicle_detected, identification_valid, vehicle_passed)
+    begin
+        -- Por defecto, el siguiente estado es igual al estado actual
+        estado_siguiente <= estado_actual;
+
+        -- Transiciones entre estados
+        case estado_actual is
+            when inicio =>
+                if vehicle_detected = '1' then
+                    estado_siguiente <= deteccion_vehiculo;
+                end if;
+            when deteccion_vehiculo =>
+                if identification_valid = '1' then
+                    estado_siguiente <= validacion_identificacion;
+                end if;
+            when validacion_identificacion =>
+                if vehicle_passed = '1' then
+                    estado_siguiente <= paso_vehiculo;
+                end if;
+            -- Agregar más transiciones según sea necesario para las demás etapas del sistema
+            when others =>
+                null; -- No hacer nada por defecto
+        end case;
+    end proceso;
+
+    -- Lógica de salida
+    with estado_actual select
+        barrier_open <= '1' when paso_vehiculo,
+                        '0' when others;
+        semaphore_open <= '1' when paso_vehiculo,
+                          '0' when others;
+end architecture MaquinaEstados_arch;

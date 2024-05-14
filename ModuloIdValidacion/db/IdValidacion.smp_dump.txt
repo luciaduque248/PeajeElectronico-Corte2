@@ -1,0 +1,14 @@
+
+State Machine - |IdValidacion|estado_siguiente
+Name estado_siguiente.identificacion_validada estado_siguiente.validando_identificacion estado_siguiente.recibiendo_id estado_siguiente.esperando_inicio 
+estado_siguiente.esperando_inicio 0 0 0 0 
+estado_siguiente.recibiendo_id 0 0 1 1 
+estado_siguiente.validando_identificacion 0 1 0 1 
+estado_siguiente.identificacion_validada 1 0 0 1 
+
+State Machine - |IdValidacion|estado_actual
+Name estado_actual.identificacion_validada estado_actual.validando_identificacion estado_actual.recibiendo_id estado_actual.esperando_inicio 
+estado_actual.esperando_inicio 0 0 0 0 
+estado_actual.recibiendo_id 0 0 1 1 
+estado_actual.validando_identificacion 0 1 0 1 
+estado_actual.identificacion_validada 1 0 0 1 

@@ -1,0 +1,87 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity IdentificacionValidacion is
+    port (
+        -- Señal de reloj
+        clk: in std_logic;
+        -- Señal de reinicio
+        rst: in std_logic;
+        -- Señal de identificación TAG REID/NFC
+        tag_identificacion: in std_logic;
+        -- Salida para indicar la validez de la identificación
+        identificacion_valida: out std_logic;
+        -- Salida para la categoría del vehículo identificado
+        categoria_vehiculo: out std_logic_vector(3 downto 0)
+    );
+end entity IdentificacionValidacion;
+
+architecture IdentificacionValidacion_arch of IdentificacionValidacion is
+    -- Tipos de datos para la categoría del vehículo
+    type categoria_vehiculo_t is (
+        coche,
+        camioneta,
+        autobus,
+        camion
+    );
+
+    -- Registro de desplazamiento para el TAG REID/NFC
+    signal registro_tag: std_logic_vector(7 downto 0);
+
+    -- Estado de la submáquina de estado para la identificación y validación
+    type estado_identificacion is (
+        esperando_inicio,
+        leyendo_identificacion,
+        validando_identificacion,
+        identificacion_validada
+    );
+
+    signal estado_actual, estado_siguiente: estado_identificacion;
+
+    -- Constantes para los patrones de identificación
+    constant PATRON_IDENTIFICACION: std_logic_vector(7 downto 0) := "10101010";
+
+begin
+    -- Proceso de la submáquina de estado para la identificación y validación
+    proceso_identificacion : process(clk, rst)
+    begin
+        if rst = '1' then
+            -- Reiniciar la máquina de estado y el registro TAG
+            estado_actual <= esperando_inicio;
+            registro_tag <= (others => '0');
+        elsif rising_edge(clk) then
+            -- Transiciones entre estados
+            case estado_actual is
+                when esperando_inicio =>
+                    if tag_identificacion = '1' then
+                        estado_siguiente <= leyendo_identificacion;
+                    else
+                        estado_siguiente <= esperando_inicio;
+                    end if;
+                when leyendo_identificacion =>
+                    registro_tag <= tag_identificacion & registro_tag(7 downto 1);
+                    if registro_tag = PATRON_IDENTIFICACION then
+                        estado_siguiente <= validando_identificacion;
+                    else
+                        estado_siguiente <= leyendo_identificacion;
+                    end if;
+                when validando_identificacion =>
+                    -- Aquí implementar la lógica de validación
+                    if registro_tag(7 downto 4) = "0000" then
+                        identificacion_valida <= '1';
+                        categoria_vehiculo <= "0000"; -- Categoría de vehículo: coche
+                    else
+                        identificacion_valida <= '0';
+                        categoria_vehiculo <= (others => '0'); -- Categoría de vehículo inválida
+                    end if;
+                    estado_siguiente <= identificacion_validada;
+                when identificacion_validada =>
+                    estado_siguiente <= esperando_inicio;  -- Regresar al estado inicial
+            end case;
+
+            -- Actualización del estado actual
+            estado_actual <= estado_siguiente;
+        end if;
+    end process proceso_identificacion;
+
+end architecture IdentificacionValidacion_arch;

@@ -1,0 +1,64 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MaquinaTiempoPaso is
+    port (
+        -- Entradas
+        clk: in std_logic; -- Señal de reloj
+        vehiculo_det: in std_logic; -- Señal que indica la detección de un vehículo en el carril
+        -- Salidas
+        talanquera_abierta: out std_logic -- Señal que indica si la talanquera está abierta o cerrada
+    );
+end entity MaquinaTiempoPaso;
+
+architecture MaquinaTiempoPaso_arch of MaquinaTiempoPaso is
+    -- Definición de los estados de la submáquina de estado del control del tiempo de paso
+    type estado_tiempo_paso is (esperando_vehiculo, vehiculo_detectado, esperando_paso, paso_exitoso);
+    signal estado_actual, estado_siguiente: estado_tiempo_paso;
+
+    -- Definición de constantes para el tiempo límite
+    constant TIEMPO_LIMITE: integer := 50000000; -- 5 segundos (en ciclos de reloj)
+
+    -- Contador de tiempo
+    signal contador_tiempo: integer range 0 to TIEMPO_LIMITE;
+
+begin
+    -- Proceso de la submáquina de estado del control del tiempo de paso
+    proceso_tiempo_paso : process(clk)
+    begin
+        if rising_edge(clk) then
+            -- Transiciones entre estados
+            case estado_actual is
+                when esperando_vehiculo =>
+                    if vehiculo_det = '1' then
+                        estado_siguiente <= vehiculo_detectado;
+                        contador_tiempo <= 0; -- Reiniciar el contador de tiempo
+                    else
+                        estado_siguiente <= esperando_vehiculo;
+                    end if;
+                when vehiculo_detectado =>
+                    estado_siguiente <= esperando_paso;
+                when esperando_paso =>
+                    if contador_tiempo < TIEMPO_LIMITE then
+                        contador_tiempo <= contador_tiempo + 1; -- Incrementar el contador de tiempo
+                        estado_siguiente <= esperando_paso;
+                    else
+                        estado_siguiente <= paso_exitoso; -- El tiempo de paso ha sido exitoso
+                    end if;
+                when paso_exitoso =>
+                    estado_siguiente <= esperando_vehiculo; -- Reiniciar la submáquina
+            end case;
+
+            -- Asignación de la talanquera según el estado siguiente
+            case estado_siguiente is
+                when esperando_paso =>
+                    talanquera_abierta <= '1';
+                when others =>
+                    talanquera_abierta <= '0';
+            end case;
+
+            -- Actualización del estado actual
+            estado_actual <= estado_siguiente;
+        end if;
+    end process proceso_tiempo_paso;
+end architecture MaquinaTiempoPaso_arch;

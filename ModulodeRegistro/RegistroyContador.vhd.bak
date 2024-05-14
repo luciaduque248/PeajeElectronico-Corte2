@@ -1,0 +1,50 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity RegistroConteo is
+    port (
+        -- Señal de reloj
+        clk: in std_logic;
+        -- Reset asincrónico
+        rst: in std_logic;
+        -- Señal que indica el paso de un vehículo
+        vehiculo_pasado: in std_logic;
+        -- Salida para el número total de vehículos que han pasado
+        total_vehiculos: out integer range 0 to 9999;
+        -- Salida para el tiempo de paso del último vehículo
+        tiempo_paso_ultimo_vehiculo: out integer range 0 to 9999
+    );
+end entity RegistroConteo;
+
+architecture RegistroConteo_arch of RegistroConteo is
+    -- Contadores para el número total de vehículos y el tiempo de paso del último vehículo
+    signal contador_total_vehiculos: integer range 0 to 9999 := 0;
+    signal contador_tiempo_paso_ultimo_vehiculo: integer range 0 to 9999 := 0;
+
+begin
+    -- Proceso para el registro y conteo
+    proceso_registro_conteo : process(clk, rst)
+    begin
+        if rst = '1' then
+            -- Reset asincrónico: reiniciar contadores
+            contador_total_vehiculos <= 0;
+            contador_tiempo_paso_ultimo_vehiculo <= 0;
+        elsif rising_edge(clk) then
+            -- Incrementar el contador de tiempo de paso si un vehículo ha pasado
+            if vehiculo_pasado = '1' then
+                contador_tiempo_paso_ultimo_vehiculo <= contador_tiempo_paso_ultimo_vehiculo + 1;
+            end if;
+
+            -- Incrementar el contador total de vehículos si un vehículo ha pasado
+            if vehiculo_pasado = '1' then
+                contador_total_vehiculos <= contador_total_vehiculos + 1;
+            end if;
+        end if;
+    end process proceso_registro_conteo;
+
+    -- Asignar los valores de los contadores a las salidas
+    total_vehiculos <= to_integer(unsigned(contador_total_vehiculos));
+    tiempo_paso_ultimo_vehiculo <= to_integer(unsigned(contador_tiempo_paso_ultimo_vehiculo));
+
+end architecture RegistroConteo_arch;

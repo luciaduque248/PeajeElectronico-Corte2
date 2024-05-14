@@ -1,0 +1,430 @@
+Analysis & Synthesis report for DetectorVehicular
+Sun May 12 16:13:29 2024
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun May 12 16:13:29 2024      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; DetectorVehicular                          ;
+; Top-level Entity Name              ; DetectorVehicular                          ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 108                                        ;
+;     Total combinational functions  ; 108                                        ;
+;     Dedicated logic registers      ; 0                                          ;
+; Total registers                    ; 0                                          ;
+; Total pins                         ; 3                                          ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; DetectorVehicular  ; DetectorVehicular  ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; DetectorVehicular.vhd            ; yes             ; User VHDL File  ; C:/altera/13.1/PEAJE_MAQUINA_ESTADOS/ModuloDeteccionVehicular/DetectorVehicular.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimated Total logic elements              ; 108                ;
+;                                             ;                    ;
+; Total combinational functions               ; 108                ;
+; Logic element usage by number of LUT inputs ;                    ;
+;     -- 4 input functions                    ; 43                 ;
+;     -- 3 input functions                    ; 33                 ;
+;     -- <=2 input functions                  ; 32                 ;
+;                                             ;                    ;
+; Logic elements by mode                      ;                    ;
+;     -- normal mode                          ; 77                 ;
+;     -- arithmetic mode                      ; 31                 ;
+;                                             ;                    ;
+; Total registers                             ; 0                  ;
+;     -- Dedicated logic registers            ; 0                  ;
+;     -- I/O registers                        ; 0                  ;
+;                                             ;                    ;
+; I/O pins                                    ; 3                  ;
+; Embedded Multiplier 9-bit elements          ; 0                  ;
+; Maximum fan-out node                        ; estado_siguiente~3 ;
+; Maximum fan-out                             ; 35                 ;
+; Total fan-out                               ; 338                ;
+; Average fan-out                             ; 2.96               ;
++---------------------------------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |DetectorVehicular         ; 108 (108)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |DetectorVehicular  ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; distancia_actual[31]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[4]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[5]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[6]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[7]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[8]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[9]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[10]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[11]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[12]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[13]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[14]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[15]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[16]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[17]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[18]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[19]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[20]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[21]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[22]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[23]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[24]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[25]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[26]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[27]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[28]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[29]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[30]                                ; distancia_actual[1] ; yes                    ;
+; distancia_actual[3]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[1]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[2]                                 ; distancia_actual[1] ; yes                    ;
+; distancia_actual[0]                                 ; distancia_actual[1] ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; vehiculo_detectado~0                                   ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |DetectorVehicular|distancia_actual[16] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sun May 12 16:13:27 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DetectorVehicular -c DetectorVehicular
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file detectorvehicular.vhd
+    Info (12022): Found design unit 1: DetectorVehicular-DetectorVehicular_arch
+    Info (12023): Found entity 1: DetectorVehicular
+Info (12127): Elaborating entity "DetectorVehicular" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(28): signal "estado_actual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(39): signal "distancia_actual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(40): signal "distancia_actual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(52): signal "estado_siguiente" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at DetectorVehicular.vhd(25): inferring latch(es) for signal or variable "distancia_actual", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "distancia_actual[0]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[1]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[2]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[3]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[4]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[5]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[6]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[7]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[8]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[9]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[10]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[11]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[12]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[13]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[14]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[15]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[16]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[17]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[18]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[19]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[20]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[21]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[22]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[23]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[24]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[25]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[26]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[27]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[28]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[29]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[30]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[31]" at DetectorVehicular.vhd(25)
+Warning (13012): Latch distancia_actual[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Warning (13012): Latch distancia_actual[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal vehiculo_detectado~0
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 111 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 108 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 4664 megabytes
+    Info: Processing ended: Sun May 12 16:13:29 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

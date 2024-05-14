@@ -1,0 +1,26 @@
+|MaquinaValidacion
+identificacion[0] => Equal0.IN4
+identificacion[0] => Equal1.IN4
+identificacion[0] => Equal2.IN3
+identificacion[0] => Equal3.IN4
+identificacion[1] => Equal0.IN3
+identificacion[1] => Equal1.IN3
+identificacion[1] => Equal2.IN4
+identificacion[1] => Equal3.IN3
+identificacion[2] => Equal0.IN2
+identificacion[2] => Equal1.IN2
+identificacion[2] => Equal2.IN2
+identificacion[2] => Equal3.IN2
+identificacion[3] => Equal0.IN1
+identificacion[3] => Equal1.IN1
+identificacion[3] => Equal2.IN1
+identificacion[3] => Equal3.IN1
+identificacion[4] => Equal0.IN0
+identificacion[4] => Equal1.IN0
+identificacion[4] => Equal2.IN0
+identificacion[4] => Equal3.IN0
+identificacion_valida <= identificacion_valida$latch.DB_MAX_OUTPUT_PORT_TYPE
+categoria_vehiculo[0] <= categoria_vehiculo[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+categoria_vehiculo[1] <= categoria_vehiculo[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

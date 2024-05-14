@@ -1,0 +1,18 @@
+
+State Machine - |MaquinaEstados|estado_siguiente
+Name estado_siguiente.finalizacion estado_siguiente.paso_vehiculo estado_siguiente.cobro_peaje estado_siguiente.validacion_identificacion estado_siguiente.deteccion_vehiculo estado_siguiente.inicio 
+estado_siguiente.inicio 0 0 0 0 0 0 
+estado_siguiente.deteccion_vehiculo 0 0 0 0 1 1 
+estado_siguiente.validacion_identificacion 0 0 0 1 0 1 
+estado_siguiente.cobro_peaje 0 0 1 0 0 1 
+estado_siguiente.paso_vehiculo 0 1 0 0 0 1 
+estado_siguiente.finalizacion 1 0 0 0 0 1 
+
+State Machine - |MaquinaEstados|estado_actual
+Name estado_actual.finalizacion estado_actual.paso_vehiculo estado_actual.cobro_peaje estado_actual.validacion_identificacion estado_actual.deteccion_vehiculo estado_actual.inicio 
+estado_actual.inicio 0 0 0 0 0 0 
+estado_actual.deteccion_vehiculo 0 0 0 0 1 1 
+estado_actual.validacion_identificacion 0 0 0 1 0 1 
+estado_actual.cobro_peaje 0 0 1 0 0 1 
+estado_actual.paso_vehiculo 0 1 0 0 0 1 
+estado_actual.finalizacion 1 0 0 0 0 1 

@@ -1,0 +1,14 @@
+
+State Machine - |ControlTalanquera_Semaforo|estado_siguiente
+Name estado_siguiente.emergencia estado_siguiente.congestion_salida estado_siguiente.congestion_entrada estado_siguiente.estado_normal 
+estado_siguiente.estado_normal 0 0 0 0 
+estado_siguiente.congestion_entrada 0 0 1 1 
+estado_siguiente.congestion_salida 0 1 0 1 
+estado_siguiente.emergencia 1 0 0 1 
+
+State Machine - |ControlTalanquera_Semaforo|estado_actual
+Name estado_actual.emergencia estado_actual.congestion_salida estado_actual.congestion_entrada estado_actual.estado_normal 
+estado_actual.estado_normal 0 0 0 0 
+estado_actual.congestion_entrada 0 0 1 1 
+estado_actual.congestion_salida 0 1 0 1 
+estado_actual.emergencia 1 0 0 1 

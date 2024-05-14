@@ -1,0 +1,135 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity PeajeElectronico is
+    port (
+        -- Entradas
+        clk: in std_logic;
+        rst: in std_logic;
+        sensor_delantero: in std_logic;
+        sensor_trasero: in std_logic;
+        tag_identificacion: in std_logic;
+        -- Salidas
+        barrera_entrada: out std_logic;
+        barrera_salida: out std_logic;
+        semaforo_entrada: out std_logic;
+        semaforo_salida: out std_logic;
+        total_vehiculos: out unsigned(13 downto 0);
+        tiempo_paso_ultimo_vehiculo: out unsigned(13 downto 0)
+    );
+end entity PeajeElectronico;
+
+architecture PeajeElectronico_arch of PeajeElectronico is
+    -- Señales internas
+    signal vehiculo_detectado: std_logic;
+    signal identificacion_valida: std_logic;
+    signal categoria_vehiculo: std_logic_vector(3 downto 0);
+    signal vehiculo_ingresado: std_logic;
+    signal tiempo_pasado: std_logic;
+    signal talanquera_abierta: std_logic;
+    signal semaforo_estado: std_logic;
+    signal vehiculo_pasado: std_logic;
+
+    -- Instancias de componentes
+    component DetectorVehicular is
+        port (
+            sensor_delantero: in std_logic;
+            sensor_trasero: in std_logic;
+            vehiculo_detectado: out std_logic
+        );
+    end component;
+
+    component IdValidacion is
+        port (
+            clk: in std_logic;
+            rst: in std_logic;
+            tag_identificacion: in std_logic;
+            identificacion_valida: out std_logic;
+            categoria_vehiculo: out std_logic_vector(3 downto 0)
+        );
+    end component;
+
+    component ControlTalanquera is
+        port (
+            clk: in std_logic;
+            vehiculo_det: in std_logic;
+            identificacion_valida: in std_logic;
+            vehiculo_ingresado: in std_logic;
+            tiempo_pasado: in std_logic;
+            talanquera_entrada: out std_logic;
+            talanquera_salida: out std_logic;
+            semaforo_entrada: out std_logic;
+            semaforo_salida: out std_logic
+        );
+    end component;
+
+    component MaquinaTiempoPaso is
+        port (
+            clk: in std_logic;
+            vehiculo_det: in std_logic;
+            talanquera_abierta: out std_logic
+        );
+    end component;
+
+    component RegistroyContador is
+        port (
+            clk: in std_logic;
+            rst: in std_logic;
+            vehiculo_pasado: in std_logic;
+            total_vehiculos: out unsigned(13 downto 0);
+            tiempo_paso_ultimo_vehiculo: out unsigned(13 downto 0)
+        );
+    end component;
+
+    -- Otras señales internas y componentes adicionales según sea necesario
+
+begin
+    -- Instancias de componentes
+    inst_DetectorVehicular: DetectorVehicular
+        port map (
+            sensor_delantero => sensor_delantero,
+            sensor_trasero => sensor_trasero,
+            vehiculo_detectado => vehiculo_detectado
+        );
+
+    inst_IdValidacion: IdValidacion
+        port map (
+            clk => clk,
+            rst => rst,
+            tag_identificacion => tag_identificacion,
+            identificacion_valida => identificacion_valida,
+            categoria_vehiculo => categoria_vehiculo
+        );
+
+    inst_ControlTalanquera: ControlTalanquera
+        port map (
+            clk => clk,
+            vehiculo_det => vehiculo_detectado,
+            identificacion_valida => identificacion_valida,
+            vehiculo_ingresado => vehiculo_ingresado,
+            tiempo_pasado => tiempo_pasado,
+            talanquera_entrada => barrera_entrada,
+            talanquera_salida => barrera_salida,
+            semaforo_entrada => semaforo_entrada,
+            semaforo_salida => semaforo_salida
+        );
+
+    inst_MaquinaTiempoPaso: MaquinaTiempoPaso
+        port map (
+            clk => clk,
+            vehiculo_det => vehiculo_detectado,
+            talanquera_abierta => talanquera_abierta
+        );
+
+    inst_RegistroyContador: RegistroyContador
+        port map (
+            clk => clk,
+            rst => rst,
+            vehiculo_pasado => vehiculo_pasado,
+            total_vehiculos => total_vehiculos,
+            tiempo_paso_ultimo_vehiculo => tiempo_paso_ultimo_vehiculo
+        );
+
+    -- Otras conexiones y lógica adicional según sea necesario
+
+end architecture PeajeElectronico_arch;

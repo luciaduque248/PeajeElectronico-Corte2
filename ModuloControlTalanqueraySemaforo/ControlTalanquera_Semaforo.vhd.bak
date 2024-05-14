@@ -1,0 +1,116 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ControlBarrerasSemáforos is
+    port (
+        -- Señal de reloj
+        clk: in std_logic;
+        -- Señal de reinicio
+        rst: in std_logic;
+        -- Estado del sistema
+        estado_sistema: in std_logic_vector(1 downto 0);
+        -- Condiciones de tráfico
+        trafico: in std_logic_vector(1 downto 0);
+        -- Salidas para controlar las barreras de entrada y salida
+        barrera_entrada: out std_logic;
+        barrera_salida: out std_logic;
+        -- Salidas para controlar los semáforos de entrada y salida
+        semáforo_entrada: out std_logic;
+        semáforo_salida: out std_logic
+    );
+end entity ControlBarrerasSemáforos;
+
+architecture ControlBarrerasSemáforos_arch of ControlBarrerasSemáforos is
+    -- Definición de los estados del sistema
+    type estado_sistema_t is (
+        estado_normal,
+        congestión_entrada,
+        congestión_salida,
+        emergencia
+    );
+
+    -- Estado actual y siguiente del sistema
+    signal estado_actual, estado_siguiente: estado_sistema_t;
+
+    -- Definición de los estados de tráfico
+    type estado_tráfico_t is (
+        tráfico_ligero,
+        tráfico_denso,
+        tráfico_congestionado
+    );
+
+    -- Estado actual del tráfico
+    signal tráfico_actual: estado_tráfico_t;
+
+    -- Parámetros de configuración
+    constant TIEMPO_CONGESTION: natural := 10; -- Número de ciclos de reloj para considerar congestionado el tráfico
+
+begin
+    -- Proceso para el control de las barreras y semáforos
+    proceso_control : process(clk, rst)
+    begin
+        if rst = '1' then
+            -- Reiniciar estado del sistema y tráfico
+            estado_actual <= estado_normal;
+            tráfico_actual <= tráfico_ligero;
+        elsif rising_edge(clk) then
+            -- Actualizar estado del sistema
+            estado_actual <= estado_siguiente;
+
+            -- Determinar el estado siguiente del sistema
+            case estado_actual is
+                when estado_normal =>
+                    if trafico_actual = tráfico_congestionado then
+                        if trafico = "00" then
+                            estado_siguiente <= congestión_entrada;
+                        elsif trafico = "01" then
+                            estado_siguiente <= congestión_salida;
+                        else
+                            estado_siguiente <= emergencia;
+                        end if;
+                    end if;
+                when congestión_entrada =>
+                    if trafico_actual /= tráfico_congestionado then
+                        estado_siguiente <= estado_normal;
+                    end if;
+                when congestión_salida =>
+                    if trafico_actual /= tráfico_congestionado then
+                        estado_siguiente <= estado_normal;
+                    end if;
+                when emergencia =>
+                    -- Aquí se podrían agregar condiciones de salida de emergencia
+                    estado_siguiente <= estado_normal;
+            end case;
+
+            -- Control de las barreras de entrada y salida
+            case estado_actual is
+                when congestión_entrada | emergencia =>
+                    barrera_entrada <= '1';
+                when others =>
+                    barrera_entrada <= '0';
+            end case;
+
+            case estado_actual is
+                when congestión_salida | emergencia =>
+                    barrera_salida <= '1';
+                when others =>
+                    barrera_salida <= '0';
+            end case;
+
+            -- Control de los semáforos de entrada y salida
+            case estado_actual is
+                when congestión_entrada | congestión_salida =>
+                    semáforo_entrada <= '1';
+                when others =>
+                    semáforo_entrada <= '0';
+            end case;
+
+            case estado_actual is
+                when congestión_entrada | congestión_salida =>
+                    semáforo_salida <= '1';
+                when others =>
+                    semáforo_salida <= '0';
+            end case;
+        end if;
+    end process proceso_control;
+end architecture ControlBarrerasSemáforos_arch;

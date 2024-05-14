@@ -1,0 +1,34 @@
+|ControlTalanquera
+clk => led_salida_rojo~reg0.CLK
+clk => led_salida_verde~reg0.CLK
+clk => semaforo_salida_rojo~reg0.CLK
+clk => semaforo_salida_verde~reg0.CLK
+clk => led_entrada_rojo~reg0.CLK
+clk => led_entrada_verde~reg0.CLK
+clk => semaforo_entrada_rojo~reg0.CLK
+clk => semaforo_entrada_verde~reg0.CLK
+clk => talanquera_entrada~reg0.CLK
+clk => estado_actual~1.DATAIN
+clk => estado_siguiente~1.DATAIN
+vehiculo_det => estado_siguiente.DATAB
+vehiculo_det => Selector3.IN3
+vehiculo_det => Selector0.IN1
+vehiculo_det => Selector0.IN2
+identificacion_valida => Selector1.IN3
+identificacion_valida => Selector0.IN3
+vehiculo_ingresado => Selector2.IN3
+vehiculo_ingresado => Selector1.IN1
+tiempo_pasado => estado_siguiente.DATAB
+tiempo_pasado => Selector2.IN1
+talanquera_entrada << talanquera_entrada~reg0.DB_MAX_OUTPUT_PORT_TYPE
+talanquera_salida << comb.DB_MAX_OUTPUT_PORT_TYPE
+semaforo_entrada_verde << semaforo_entrada_verde~reg0.DB_MAX_OUTPUT_PORT_TYPE
+semaforo_entrada_rojo << semaforo_entrada_rojo~reg0.DB_MAX_OUTPUT_PORT_TYPE
+semaforo_salida_verde << semaforo_salida_verde~reg0.DB_MAX_OUTPUT_PORT_TYPE
+semaforo_salida_rojo << semaforo_salida_rojo~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_entrada_verde << led_entrada_verde~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_entrada_rojo << led_entrada_rojo~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_salida_verde << led_salida_verde~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_salida_rojo << led_salida_rojo~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

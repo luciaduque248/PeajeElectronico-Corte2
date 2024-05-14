@@ -1,0 +1,175 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity PeajeElectronico is
+    port (
+        -- Entradas
+        clk: in std_logic;
+        rst: in std_logic;
+        sensor_delantero: in std_logic;
+        sensor_trasero: in std_logic;
+        tag_identificacion: in std_logic;
+        -- Salidas
+        barrera_entrada: out std_logic;
+        barrera_salida: out std_logic;
+        semaforo_entrada_verde: out std_logic; -- Semáforo 1
+        semaforo_entrada_rojo: out std_logic;
+        semaforo_salida_verde: out std_logic;  -- Semáforo 2
+        semaforo_salida_rojo: out std_logic;
+        total_vehiculos: out unsigned(13 downto 0);
+        tiempo_paso_ultimo_vehiculo: out unsigned(13 downto 0);
+        -- Salidas para el display de 7 segmentos
+        display_output: out std_logic_vector(6 downto 0); -- A-G
+        -- Salidas para la pantalla LCD
+        lcd_enabled: out std_logic;
+        lcd_rw: out std_logic;
+        lcd_rs: out std_logic;
+        lcd_data: out std_logic_vector(3 downto 0)
+    );
+end entity PeajeElectronico;
+
+architecture PeajeElectronico_arch of PeajeElectronico is
+    -- Señales internas
+    signal sensor_vehiculo_detectado: std_logic;
+    signal identificacion_valida: std_logic;
+    signal categoria_vehiculo: std_logic_vector(3 downto 0);
+    signal vehiculo_ingresado: std_logic;
+    signal tiempo_pasado: std_logic;
+    signal talanquera_abierta: std_logic;
+    signal semaforo_estado: std_logic;
+    signal vehiculo_pasado: std_logic;
+    -- Salida para el display de 7 segmentos
+    signal display_value: std_logic_vector(3 downto 0); -- Valor a mostrar en el display
+    
+    -- Señales para la pantalla LCD
+    signal datos_pantalla: std_logic_vector(7 downto 0);
+    signal enable_escritura_pantalla: std_logic;
+    signal enable_borrar_pantalla: std_logic;
+    signal enable_posicionar_pantalla: std_logic;
+    signal posicion_cursor_pantalla: std_logic_vector(5 downto 0);
+    
+    -- Definición de los valores a mostrar en el display para cada estado
+    constant DISPLAY_ESPERANDO: std_logic_vector(6 downto 0) := "0000001";
+    constant DISPLAY_DETECTADO: std_logic_vector(6 downto 0) := "1001111";
+    constant DISPLAY_VALIDANDO: std_logic_vector(6 downto 0) := "0010010";
+    
+    -- Instancias de componentes
+    component DetectorVehicular is
+        -- Declaración del componente DetectorVehicular
+    end component;
+
+    component IdValidacion is
+        -- Declaración del componente IdValidacion
+    end component;
+
+    component ControlTalanquera is
+        -- Declaración del componente ControlTalanquera
+    end component;
+
+    component MaquinaTiempoPaso is
+        -- Declaración del componente MaquinaTiempoPaso
+    end component;
+
+    component RegistroyContador is
+        -- Declaración del componente RegistroyContador
+    end component;
+    
+    component PantallaLCD is
+        port (
+            clk : in std_logic;
+            rst : in std_logic;
+            datos_entrada : in std_logic_vector(7 downto 0);
+            enable_escritura : in std_logic;
+            enable_borrar : in std_logic;
+            enable_posicionar : in std_logic;
+            posicion_cursor : in std_logic_vector(5 downto 0);
+            lcd_enabled : out std_logic;
+            lcd_rw : out std_logic;
+            lcd_rs : out std_logic;
+            lcd_data : out std_logic_vector(3 downto 0)
+        );
+    end component;
+    
+    -- Máquina de estado principal para controlar el flujo del sistema y actualizar el display y la pantalla LCD
+    type estado_maquina is (esperando, detectado, validando);
+    signal estado_actual, estado_siguiente: estado_maquina;
+    
+begin
+    -- Instancias de componentes
+    inst_DetectorVehicular: DetectorVehicular
+        port map (
+            -- Mapeo de las señales del componente DetectorVehicular
+        );
+
+    inst_IdValidacion: IdValidacion
+        port map (
+            -- Mapeo de las señales del componente IdValidacion
+        );
+
+    inst_ControlTalanquera: ControlTalanquera
+        port map (
+            -- Mapeo de las señales del componente ControlTalanquera
+        );
+
+    inst_MaquinaTiempoPaso: MaquinaTiempoPaso
+        port map (
+            -- Mapeo de las señales del componente MaquinaTiempoPaso
+        );
+
+    inst_RegistroyContador: RegistroyContador
+        port map (
+            -- Mapeo de las señales del componente RegistroyContador
+        );
+    
+    inst_PantallaLCD: PantallaLCD
+        port map (
+            clk => clk,
+            rst => rst,
+            datos_entrada => datos_pantalla,
+            enable_escritura => enable_escritura_pantalla,
+            enable_borrar => enable_borrar_pantalla,
+            enable_posicionar => enable_posicionar_pantalla,
+            posicion_cursor => posicion_cursor_pantalla,
+            lcd_enabled => lcd_enabled,
+            lcd_rw => lcd_rw,
+            lcd_rs => lcd_rs,
+            lcd_data => lcd_data
+        );
+
+    -- Lógica para actualizar el estado de la máquina, el valor del display y la pantalla LCD
+    proceso_maquina_estado : process(clk, rst)
+    begin
+        if rst = '1' then
+            estado_actual <= esperando;
+            enable_borrar_pantalla <= '1'; -- Borrar la pantalla LCD al iniciar
+        elsif rising_edge(clk) then
+            estado_actual <= estado_siguiente;
+            
+            -- Actualizar el valor del display en función del estado actual
+            if estado_actual = esperando then
+                display_output <= DISPLAY_ESPERANDO;
+                datos_pantalla <= X"45"; -- Código ASCII para 'E' (Esperando)
+                enable_escritura_pantalla <= '1';
+            elsif estado_actual = detectado then
+                display_output <= DISPLAY_DETECTADO;
+                datos_pantalla <= X"44"; -- Código ASCII para 'D' (Detectado)
+                enable_escritura_pantalla <= '1';
+            elsif estado_actual = validando then
+                display_output <= DISPLAY_VALIDANDO;
+                datos_pantalla <= X"56"; -- Código ASCII para 'V' (Validando)
+                enable_escritura_pantalla <= '1';
+            else
+                display_output <= "0000000"; -- Valor por defecto
+                datos_pantalla <= X"20"; -- Espacio en blanco
+                enable_escritura_pantalla <= '0';
+            end if;
+        end if;
+    end process proceso_maquina_estado;
+    
+    -- Lógica para actualizar el estado siguiente
+    proceso_siguiente_estado : process(sensor_vehiculo_detectado, identificacion_valida, estado_actual)
+    begin
+        case estado_actual is
+            when esperando =>
+                if sensor

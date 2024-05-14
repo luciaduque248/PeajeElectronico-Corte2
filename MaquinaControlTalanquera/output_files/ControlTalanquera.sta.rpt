@@ -1,0 +1,1288 @@
+TimeQuest Timing Analyzer report for ControlTalanquera
+Mon May 13 16:39:24 2024
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'clk'
+ 27. Slow 1200mV 0C Model Hold: 'clk'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'clk'
+ 40. Fast 1200mV 0C Model Hold: 'clk'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Slow Corner Signal Integrity Metrics
+ 55. Fast Corner Signal Integrity Metrics
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths
+ 61. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; ControlTalanquera                                  ;
+; Device Family      ; Cyclone III                                        ;
+; Device Name        ; EP3C16F484C6                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 913.24 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -0.095 ; -0.174             ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.373 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -26.000                          ;
++-------+--------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                   ;
++--------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                 ; To Node                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.095 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 1.000        ; -0.061     ; 1.029      ;
+; -0.079 ; estado_actual.validando_identificacion    ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.062     ; 1.012      ;
+; -0.052 ; estado_actual.esperando_vehiculo          ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.062     ; 0.985      ;
+; 0.001  ; estado_actual.esperando_salida            ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.061     ; 0.933      ;
+; 0.036  ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_verde~reg0               ; clk          ; clk         ; 1.000        ; -0.062     ; 0.897      ;
+; 0.040  ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.062     ; 0.893      ;
+; 0.041  ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 1.000        ; -0.062     ; 0.892      ;
+; 0.043  ; estado_actual.abriendo_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 1.000        ; -0.062     ; 0.890      ;
+; 0.043  ; estado_actual.esperando_salida            ; semaforo_salida_verde~reg0                ; clk          ; clk         ; 1.000        ; -0.061     ; 0.891      ;
+; 0.044  ; estado_actual.esperando_salida            ; led_salida_verde~reg0                     ; clk          ; clk         ; 1.000        ; -0.061     ; 0.890      ;
+; 0.048  ; estado_actual.abriendo_barrera_entrada    ; led_entrada_verde~reg0                    ; clk          ; clk         ; 1.000        ; -0.062     ; 0.885      ;
+; 0.079  ; estado_actual.abriendo_barrera_entrada    ; led_entrada_rojo~reg0                     ; clk          ; clk         ; 1.000        ; -0.062     ; 0.854      ;
+; 0.080  ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_rojo~reg0                ; clk          ; clk         ; 1.000        ; -0.062     ; 0.853      ;
+; 0.081  ; estado_actual.esperando_salida            ; semaforo_salida_rojo~reg0                 ; clk          ; clk         ; 1.000        ; -0.061     ; 0.853      ;
+; 0.084  ; estado_actual.esperando_salida            ; led_salida_rojo~reg0                      ; clk          ; clk         ; 1.000        ; -0.061     ; 0.850      ;
+; 0.086  ; estado_actual.cerrando_barrera_entrada    ; estado_siguiente.abriendo_barrera_salida  ; clk          ; clk         ; 1.000        ; -0.062     ; 0.847      ;
+; 0.129  ; estado_actual.esperando_vehiculo          ; estado_siguiente.validando_identificacion ; clk          ; clk         ; 1.000        ; -0.062     ; 0.804      ;
+; 0.224  ; estado_actual.cerrando_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 1.000        ; -0.062     ; 0.709      ;
+; 0.232  ; estado_actual.esperando_paso              ; estado_siguiente.cerrando_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.062     ; 0.701      ;
+; 0.233  ; estado_actual.validando_identificacion    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.062     ; 0.700      ;
+; 0.235  ; estado_actual.esperando_paso              ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 1.000        ; -0.062     ; 0.698      ;
+; 0.244  ; estado_siguiente.validando_identificacion ; estado_actual.validando_identificacion    ; clk          ; clk         ; 1.000        ; -0.062     ; 0.689      ;
+; 0.245  ; estado_siguiente.abriendo_barrera_entrada ; estado_actual.abriendo_barrera_entrada    ; clk          ; clk         ; 1.000        ; -0.062     ; 0.688      ;
+; 0.245  ; estado_siguiente.abriendo_barrera_salida  ; estado_actual.abriendo_barrera_salida     ; clk          ; clk         ; 1.000        ; -0.061     ; 0.689      ;
+; 0.246  ; estado_siguiente.esperando_paso           ; estado_actual.esperando_paso              ; clk          ; clk         ; 1.000        ; -0.062     ; 0.687      ;
+; 0.246  ; estado_siguiente.esperando_vehiculo       ; estado_actual.esperando_vehiculo          ; clk          ; clk         ; 1.000        ; -0.062     ; 0.687      ;
+; 0.246  ; estado_actual.abriendo_barrera_salida     ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 1.000        ; -0.061     ; 0.688      ;
+; 0.247  ; estado_siguiente.cerrando_barrera_entrada ; estado_actual.cerrando_barrera_entrada    ; clk          ; clk         ; 1.000        ; -0.062     ; 0.686      ;
+; 0.247  ; estado_siguiente.esperando_salida         ; estado_actual.esperando_salida            ; clk          ; clk         ; 1.000        ; -0.061     ; 0.687      ;
++--------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                   ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.373 ; estado_siguiente.cerrando_barrera_entrada ; estado_actual.cerrando_barrera_entrada    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.592      ;
+; 0.373 ; estado_siguiente.esperando_vehiculo       ; estado_actual.esperando_vehiculo          ; clk          ; clk         ; 0.000        ; 0.062      ; 0.592      ;
+; 0.374 ; estado_siguiente.esperando_paso           ; estado_actual.esperando_paso              ; clk          ; clk         ; 0.000        ; 0.062      ; 0.593      ;
+; 0.374 ; estado_siguiente.abriendo_barrera_entrada ; estado_actual.abriendo_barrera_entrada    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.593      ;
+; 0.375 ; estado_siguiente.validando_identificacion ; estado_actual.validando_identificacion    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.594      ;
+; 0.375 ; estado_actual.abriendo_barrera_salida     ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 0.000        ; 0.061      ; 0.593      ;
+; 0.375 ; estado_siguiente.esperando_salida         ; estado_actual.esperando_salida            ; clk          ; clk         ; 0.000        ; 0.061      ; 0.593      ;
+; 0.376 ; estado_siguiente.abriendo_barrera_salida  ; estado_actual.abriendo_barrera_salida     ; clk          ; clk         ; 0.000        ; 0.061      ; 0.594      ;
+; 0.380 ; estado_actual.esperando_paso              ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 0.000        ; 0.062      ; 0.599      ;
+; 0.382 ; estado_actual.validando_identificacion    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.062      ; 0.601      ;
+; 0.383 ; estado_actual.esperando_paso              ; estado_siguiente.cerrando_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.062      ; 0.602      ;
+; 0.395 ; estado_actual.cerrando_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.614      ;
+; 0.486 ; estado_actual.esperando_vehiculo          ; estado_siguiente.validando_identificacion ; clk          ; clk         ; 0.000        ; 0.062      ; 0.705      ;
+; 0.518 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_rojo~reg0                     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.737      ;
+; 0.518 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_rojo~reg0                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.737      ;
+; 0.519 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_verde~reg0                    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.738      ;
+; 0.524 ; estado_actual.esperando_salida            ; led_salida_rojo~reg0                      ; clk          ; clk         ; 0.000        ; 0.061      ; 0.742      ;
+; 0.525 ; estado_actual.esperando_salida            ; semaforo_salida_rojo~reg0                 ; clk          ; clk         ; 0.000        ; 0.061      ; 0.743      ;
+; 0.525 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 0.000        ; 0.062      ; 0.744      ;
+; 0.525 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.062      ; 0.744      ;
+; 0.527 ; estado_actual.abriendo_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.746      ;
+; 0.529 ; estado_actual.esperando_salida            ; led_salida_verde~reg0                     ; clk          ; clk         ; 0.000        ; 0.061      ; 0.747      ;
+; 0.530 ; estado_actual.esperando_salida            ; semaforo_salida_verde~reg0                ; clk          ; clk         ; 0.000        ; 0.061      ; 0.748      ;
+; 0.534 ; estado_actual.cerrando_barrera_entrada    ; estado_siguiente.abriendo_barrera_salida  ; clk          ; clk         ; 0.000        ; 0.061      ; 0.752      ;
+; 0.562 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_verde~reg0               ; clk          ; clk         ; 0.000        ; 0.062      ; 0.781      ;
+; 0.624 ; estado_actual.esperando_vehiculo          ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.062      ; 0.843      ;
+; 0.624 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.062      ; 0.843      ;
+; 0.648 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 0.000        ; 0.061      ; 0.866      ;
+; 0.672 ; estado_actual.validando_identificacion    ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.062      ; 0.891      ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'clk'                                                                               ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                        ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                                           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o                                   ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada|clk    ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida|clk     ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada|clk    ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_paso|clk              ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_salida|clk            ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_vehiculo|clk          ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.validando_identificacion|clk    ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada|clk ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada|clk ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_paso|clk           ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_salida|clk         ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo|clk       ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.validando_identificacion|clk ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_rojo~reg0|clk                     ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_verde~reg0|clk                    ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_rojo~reg0|clk                      ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_verde~reg0|clk                     ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_rojo~reg0|clk                ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_verde~reg0|clk               ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_rojo~reg0|clk                 ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_verde~reg0|clk                ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; talanquera_entrada~reg0|clk                   ;
+; 0.356  ; 0.356        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|inclk[0]                     ;
+; 0.356  ; 0.356        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|outclk                       ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i                                   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i                                   ;
+; 0.643  ; 0.643        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|inclk[0]                     ;
+; 0.643  ; 0.643        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|outclk                       ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Setup Times                                                                       ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; identificacion_valida ; clk        ; 1.666 ; 2.064 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; 1.640 ; 2.053 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; 1.377 ; 1.794 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; 1.733 ; 2.120 ; Rise       ; clk             ;
++-----------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; identificacion_valida ; clk        ; -0.931 ; -1.348 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; -1.222 ; -1.634 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; -0.718 ; -1.105 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; -1.266 ; -1.673 ; Rise       ; clk             ;
++-----------------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Clock to Output Times                                                              ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 5.483 ; 5.516 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 5.189 ; 5.217 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 6.566 ; 6.678 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 5.297 ; 5.313 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 5.178 ; 5.201 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 5.511 ; 5.534 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 5.295 ; 5.303 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 5.270 ; 5.280 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 5.430 ; 5.450 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                      ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 5.374 ; 5.406 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 5.091 ; 5.117 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 6.459 ; 6.570 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 5.189 ; 5.202 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 5.080 ; 5.102 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 5.402 ; 5.424 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 5.187 ; 5.192 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 5.163 ; 5.170 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 5.322 ; 5.340 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                          ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                          ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+; 1033.06 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.032 ; 0.000              ;
++-------+-------+--------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.339 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -26.000                         ;
++-------+--------+---------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                   ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.032 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 1.000        ; -0.054     ; 0.909      ;
+; 0.034 ; estado_actual.validando_identificacion    ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.054     ; 0.907      ;
+; 0.069 ; estado_actual.esperando_vehiculo          ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.054     ; 0.872      ;
+; 0.098 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.054     ; 0.843      ;
+; 0.139 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_verde~reg0               ; clk          ; clk         ; 1.000        ; -0.054     ; 0.802      ;
+; 0.147 ; estado_actual.esperando_salida            ; led_salida_verde~reg0                     ; clk          ; clk         ; 1.000        ; -0.054     ; 0.794      ;
+; 0.148 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.054     ; 0.793      ;
+; 0.148 ; estado_actual.esperando_salida            ; semaforo_salida_verde~reg0                ; clk          ; clk         ; 1.000        ; -0.054     ; 0.793      ;
+; 0.149 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 1.000        ; -0.054     ; 0.792      ;
+; 0.151 ; estado_actual.abriendo_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 1.000        ; -0.054     ; 0.790      ;
+; 0.157 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_verde~reg0                    ; clk          ; clk         ; 1.000        ; -0.054     ; 0.784      ;
+; 0.172 ; estado_actual.esperando_salida            ; semaforo_salida_rojo~reg0                 ; clk          ; clk         ; 1.000        ; -0.054     ; 0.769      ;
+; 0.174 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_rojo~reg0                     ; clk          ; clk         ; 1.000        ; -0.054     ; 0.767      ;
+; 0.175 ; estado_actual.esperando_salida            ; led_salida_rojo~reg0                      ; clk          ; clk         ; 1.000        ; -0.054     ; 0.766      ;
+; 0.176 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_rojo~reg0                ; clk          ; clk         ; 1.000        ; -0.054     ; 0.765      ;
+; 0.195 ; estado_actual.cerrando_barrera_entrada    ; estado_siguiente.abriendo_barrera_salida  ; clk          ; clk         ; 1.000        ; -0.054     ; 0.746      ;
+; 0.215 ; estado_actual.esperando_vehiculo          ; estado_siguiente.validando_identificacion ; clk          ; clk         ; 1.000        ; -0.054     ; 0.726      ;
+; 0.311 ; estado_actual.cerrando_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 1.000        ; -0.054     ; 0.630      ;
+; 0.320 ; estado_actual.esperando_paso              ; estado_siguiente.cerrando_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.054     ; 0.621      ;
+; 0.320 ; estado_actual.validando_identificacion    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.054     ; 0.621      ;
+; 0.322 ; estado_actual.esperando_paso              ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 1.000        ; -0.054     ; 0.619      ;
+; 0.330 ; estado_siguiente.validando_identificacion ; estado_actual.validando_identificacion    ; clk          ; clk         ; 1.000        ; -0.054     ; 0.611      ;
+; 0.330 ; estado_siguiente.abriendo_barrera_salida  ; estado_actual.abriendo_barrera_salida     ; clk          ; clk         ; 1.000        ; -0.054     ; 0.611      ;
+; 0.331 ; estado_actual.abriendo_barrera_salida     ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 1.000        ; -0.054     ; 0.610      ;
+; 0.332 ; estado_siguiente.esperando_paso           ; estado_actual.esperando_paso              ; clk          ; clk         ; 1.000        ; -0.054     ; 0.609      ;
+; 0.332 ; estado_siguiente.abriendo_barrera_entrada ; estado_actual.abriendo_barrera_entrada    ; clk          ; clk         ; 1.000        ; -0.054     ; 0.609      ;
+; 0.332 ; estado_siguiente.esperando_vehiculo       ; estado_actual.esperando_vehiculo          ; clk          ; clk         ; 1.000        ; -0.054     ; 0.609      ;
+; 0.332 ; estado_siguiente.esperando_salida         ; estado_actual.esperando_salida            ; clk          ; clk         ; 1.000        ; -0.054     ; 0.609      ;
+; 0.333 ; estado_siguiente.cerrando_barrera_entrada ; estado_actual.cerrando_barrera_entrada    ; clk          ; clk         ; 1.000        ; -0.054     ; 0.608      ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                    ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.339 ; estado_siguiente.cerrando_barrera_entrada ; estado_actual.cerrando_barrera_entrada    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.537      ;
+; 0.340 ; estado_siguiente.esperando_paso           ; estado_actual.esperando_paso              ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; estado_siguiente.esperando_vehiculo       ; estado_actual.esperando_vehiculo          ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; estado_actual.abriendo_barrera_salida     ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.340 ; estado_siguiente.esperando_salida         ; estado_actual.esperando_salida            ; clk          ; clk         ; 0.000        ; 0.054      ; 0.538      ;
+; 0.341 ; estado_siguiente.abriendo_barrera_entrada ; estado_actual.abriendo_barrera_entrada    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.341 ; estado_siguiente.validando_identificacion ; estado_actual.validando_identificacion    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.341 ; estado_siguiente.abriendo_barrera_salida  ; estado_actual.abriendo_barrera_salida     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.539      ;
+; 0.346 ; estado_actual.esperando_paso              ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 0.000        ; 0.054      ; 0.544      ;
+; 0.348 ; estado_actual.validando_identificacion    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.054      ; 0.546      ;
+; 0.349 ; estado_actual.esperando_paso              ; estado_siguiente.cerrando_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.054      ; 0.547      ;
+; 0.359 ; estado_actual.cerrando_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.557      ;
+; 0.433 ; estado_actual.esperando_vehiculo          ; estado_siguiente.validando_identificacion ; clk          ; clk         ; 0.000        ; 0.054      ; 0.631      ;
+; 0.457 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_rojo~reg0                     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.655      ;
+; 0.457 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_rojo~reg0                ; clk          ; clk         ; 0.000        ; 0.054      ; 0.655      ;
+; 0.462 ; estado_actual.esperando_salida            ; led_salida_rojo~reg0                      ; clk          ; clk         ; 0.000        ; 0.054      ; 0.660      ;
+; 0.463 ; estado_actual.esperando_salida            ; semaforo_salida_rojo~reg0                 ; clk          ; clk         ; 0.000        ; 0.054      ; 0.661      ;
+; 0.464 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_verde~reg0                    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.662      ;
+; 0.470 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 0.000        ; 0.054      ; 0.668      ;
+; 0.470 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.054      ; 0.668      ;
+; 0.472 ; estado_actual.abriendo_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.670      ;
+; 0.473 ; estado_actual.esperando_salida            ; led_salida_verde~reg0                     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.671      ;
+; 0.474 ; estado_actual.esperando_salida            ; semaforo_salida_verde~reg0                ; clk          ; clk         ; 0.000        ; 0.054      ; 0.672      ;
+; 0.494 ; estado_actual.cerrando_barrera_entrada    ; estado_siguiente.abriendo_barrera_salida  ; clk          ; clk         ; 0.000        ; 0.054      ; 0.692      ;
+; 0.503 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_verde~reg0               ; clk          ; clk         ; 0.000        ; 0.054      ; 0.701      ;
+; 0.562 ; estado_actual.esperando_vehiculo          ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.760      ;
+; 0.565 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.763      ;
+; 0.578 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.776      ;
+; 0.607 ; estado_actual.validando_identificacion    ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.805      ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'clk'                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                        ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                                           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o                                   ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada|clk    ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada|clk    ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_paso|clk              ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_vehiculo|clk          ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.validando_identificacion|clk    ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada|clk ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada|clk ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_paso|clk           ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo|clk       ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.validando_identificacion|clk ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_rojo~reg0|clk                     ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_verde~reg0|clk                    ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_rojo~reg0|clk                ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_verde~reg0|clk               ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; talanquera_entrada~reg0|clk                   ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida|clk     ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_salida|clk            ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_salida|clk         ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_rojo~reg0|clk                      ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_verde~reg0|clk                     ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_rojo~reg0|clk                 ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_verde~reg0|clk                ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|inclk[0]                     ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|outclk                       ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i                                   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i                                   ;
+; 0.651  ; 0.651        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|inclk[0]                     ;
+; 0.651  ; 0.651        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|outclk                       ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Setup Times                                                                       ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; identificacion_valida ; clk        ; 1.401 ; 1.731 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; 1.375 ; 1.733 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; 1.155 ; 1.492 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; 1.465 ; 1.794 ; Rise       ; clk             ;
++-----------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; identificacion_valida ; clk        ; -0.751 ; -1.096 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; -1.016 ; -1.360 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; -0.562 ; -0.883 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; -1.058 ; -1.401 ; Rise       ; clk             ;
++-----------------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Clock to Output Times                                                              ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 5.225 ; 5.232 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 4.950 ; 4.964 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 6.304 ; 6.411 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 5.042 ; 5.027 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 4.940 ; 4.945 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 5.250 ; 5.250 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 5.035 ; 5.016 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 5.012 ; 4.992 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 5.170 ; 5.170 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                      ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 5.129 ; 5.135 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 4.864 ; 4.877 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 6.209 ; 6.314 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 4.946 ; 4.929 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 4.853 ; 4.858 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 5.154 ; 5.154 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 4.939 ; 4.918 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 4.917 ; 4.895 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 5.075 ; 5.074 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.382 ; 0.000              ;
++-------+-------+--------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.194 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -27.288                         ;
++-------+--------+---------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                   ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.382 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 1.000        ; -0.036     ; 0.569      ;
+; 0.405 ; estado_actual.validando_identificacion    ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.035     ; 0.547      ;
+; 0.415 ; estado_actual.esperando_vehiculo          ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.035     ; 0.537      ;
+; 0.446 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 1.000        ; -0.035     ; 0.506      ;
+; 0.462 ; estado_actual.abriendo_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 1.000        ; -0.035     ; 0.490      ;
+; 0.463 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.035     ; 0.489      ;
+; 0.464 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 1.000        ; -0.035     ; 0.488      ;
+; 0.465 ; estado_actual.esperando_salida            ; led_salida_verde~reg0                     ; clk          ; clk         ; 1.000        ; -0.036     ; 0.486      ;
+; 0.465 ; estado_actual.esperando_salida            ; semaforo_salida_verde~reg0                ; clk          ; clk         ; 1.000        ; -0.036     ; 0.486      ;
+; 0.470 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_verde~reg0                    ; clk          ; clk         ; 1.000        ; -0.035     ; 0.482      ;
+; 0.470 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_verde~reg0               ; clk          ; clk         ; 1.000        ; -0.035     ; 0.482      ;
+; 0.485 ; estado_actual.cerrando_barrera_entrada    ; estado_siguiente.abriendo_barrera_salida  ; clk          ; clk         ; 1.000        ; -0.036     ; 0.466      ;
+; 0.488 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_rojo~reg0                     ; clk          ; clk         ; 1.000        ; -0.035     ; 0.464      ;
+; 0.491 ; estado_actual.esperando_salida            ; semaforo_salida_rojo~reg0                 ; clk          ; clk         ; 1.000        ; -0.036     ; 0.460      ;
+; 0.492 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_rojo~reg0                ; clk          ; clk         ; 1.000        ; -0.035     ; 0.460      ;
+; 0.495 ; estado_actual.esperando_salida            ; led_salida_rojo~reg0                      ; clk          ; clk         ; 1.000        ; -0.036     ; 0.456      ;
+; 0.522 ; estado_actual.esperando_vehiculo          ; estado_siguiente.validando_identificacion ; clk          ; clk         ; 1.000        ; -0.035     ; 0.430      ;
+; 0.566 ; estado_actual.cerrando_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 1.000        ; -0.035     ; 0.386      ;
+; 0.571 ; estado_actual.esperando_paso              ; estado_siguiente.cerrando_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.035     ; 0.381      ;
+; 0.573 ; estado_actual.validando_identificacion    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 1.000        ; -0.035     ; 0.379      ;
+; 0.573 ; estado_actual.esperando_paso              ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 1.000        ; -0.035     ; 0.379      ;
+; 0.578 ; estado_siguiente.validando_identificacion ; estado_actual.validando_identificacion    ; clk          ; clk         ; 1.000        ; -0.035     ; 0.374      ;
+; 0.578 ; estado_siguiente.esperando_salida         ; estado_actual.esperando_salida            ; clk          ; clk         ; 1.000        ; -0.036     ; 0.373      ;
+; 0.578 ; estado_siguiente.abriendo_barrera_salida  ; estado_actual.abriendo_barrera_salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 0.373      ;
+; 0.579 ; estado_siguiente.abriendo_barrera_entrada ; estado_actual.abriendo_barrera_entrada    ; clk          ; clk         ; 1.000        ; -0.035     ; 0.373      ;
+; 0.579 ; estado_actual.abriendo_barrera_salida     ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 1.000        ; -0.036     ; 0.372      ;
+; 0.580 ; estado_siguiente.esperando_paso           ; estado_actual.esperando_paso              ; clk          ; clk         ; 1.000        ; -0.035     ; 0.372      ;
+; 0.581 ; estado_siguiente.cerrando_barrera_entrada ; estado_actual.cerrando_barrera_entrada    ; clk          ; clk         ; 1.000        ; -0.035     ; 0.371      ;
+; 0.581 ; estado_siguiente.esperando_vehiculo       ; estado_actual.esperando_vehiculo          ; clk          ; clk         ; 1.000        ; -0.035     ; 0.371      ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                    ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.194 ; estado_siguiente.cerrando_barrera_entrada ; estado_actual.cerrando_barrera_entrada    ; clk          ; clk         ; 0.000        ; 0.035      ; 0.313      ;
+; 0.194 ; estado_actual.abriendo_barrera_salida     ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; estado_siguiente.abriendo_barrera_salida  ; estado_actual.abriendo_barrera_salida     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.195 ; estado_siguiente.esperando_paso           ; estado_actual.esperando_paso              ; clk          ; clk         ; 0.000        ; 0.035      ; 0.314      ;
+; 0.195 ; estado_siguiente.esperando_vehiculo       ; estado_actual.esperando_vehiculo          ; clk          ; clk         ; 0.000        ; 0.035      ; 0.314      ;
+; 0.195 ; estado_siguiente.esperando_salida         ; estado_actual.esperando_salida            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.315      ;
+; 0.196 ; estado_siguiente.abriendo_barrera_entrada ; estado_actual.abriendo_barrera_entrada    ; clk          ; clk         ; 0.000        ; 0.035      ; 0.315      ;
+; 0.196 ; estado_siguiente.validando_identificacion ; estado_actual.validando_identificacion    ; clk          ; clk         ; 0.000        ; 0.035      ; 0.315      ;
+; 0.199 ; estado_actual.esperando_paso              ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 0.000        ; 0.035      ; 0.318      ;
+; 0.199 ; estado_actual.validando_identificacion    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.035      ; 0.318      ;
+; 0.201 ; estado_actual.esperando_paso              ; estado_siguiente.cerrando_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.035      ; 0.320      ;
+; 0.208 ; estado_actual.cerrando_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 0.000        ; 0.035      ; 0.327      ;
+; 0.262 ; estado_actual.esperando_vehiculo          ; estado_siguiente.validando_identificacion ; clk          ; clk         ; 0.000        ; 0.035      ; 0.381      ;
+; 0.276 ; estado_actual.cerrando_barrera_entrada    ; estado_siguiente.abriendo_barrera_salida  ; clk          ; clk         ; 0.000        ; 0.035      ; 0.395      ;
+; 0.277 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_verde~reg0                    ; clk          ; clk         ; 0.000        ; 0.035      ; 0.396      ;
+; 0.279 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_rojo~reg0                ; clk          ; clk         ; 0.000        ; 0.035      ; 0.398      ;
+; 0.280 ; estado_actual.esperando_salida            ; led_salida_rojo~reg0                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.400      ;
+; 0.282 ; estado_actual.esperando_salida            ; semaforo_salida_verde~reg0                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.402      ;
+; 0.282 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.esperando_paso           ; clk          ; clk         ; 0.000        ; 0.035      ; 0.401      ;
+; 0.283 ; estado_actual.abriendo_barrera_entrada    ; led_entrada_rojo~reg0                     ; clk          ; clk         ; 0.000        ; 0.035      ; 0.402      ;
+; 0.283 ; estado_actual.abriendo_barrera_entrada    ; estado_siguiente.abriendo_barrera_entrada ; clk          ; clk         ; 0.000        ; 0.035      ; 0.402      ;
+; 0.283 ; estado_actual.abriendo_barrera_entrada    ; talanquera_entrada~reg0                   ; clk          ; clk         ; 0.000        ; 0.035      ; 0.402      ;
+; 0.285 ; estado_actual.esperando_salida            ; semaforo_salida_rojo~reg0                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.405      ;
+; 0.286 ; estado_actual.esperando_salida            ; led_salida_verde~reg0                     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.406      ;
+; 0.297 ; estado_actual.abriendo_barrera_entrada    ; semaforo_entrada_verde~reg0               ; clk          ; clk         ; 0.000        ; 0.035      ; 0.416      ;
+; 0.329 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.036      ; 0.449      ;
+; 0.335 ; estado_actual.esperando_vehiculo          ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.035      ; 0.454      ;
+; 0.351 ; estado_actual.esperando_salida            ; estado_siguiente.esperando_salida         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.471      ;
+; 0.357 ; estado_actual.validando_identificacion    ; estado_siguiente.esperando_vehiculo       ; clk          ; clk         ; 0.000        ; 0.035      ; 0.476      ;
++-------+-------------------------------------------+-------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'clk'                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                        ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                                           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|o                                   ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada|clk    ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida|clk     ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada|clk    ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_paso|clk              ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_salida|clk            ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.esperando_vehiculo|clk          ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_actual.validando_identificacion|clk    ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_paso|clk           ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_salida|clk         ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo|clk       ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; estado_siguiente.validando_identificacion|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_rojo~reg0|clk                     ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_entrada_verde~reg0|clk                    ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_rojo~reg0|clk                      ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; led_salida_verde~reg0|clk                     ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_rojo~reg0|clk                ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_entrada_verde~reg0|clk               ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_rojo~reg0|clk                 ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; semaforo_salida_verde~reg0|clk                ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; talanquera_entrada~reg0|clk                   ;
+; 0.132  ; 0.132        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|inclk[0]                     ;
+; 0.132  ; 0.132        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~inputclkctrl|outclk                       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~input|i                                   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk~input|i                                   ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.abriendo_barrera_entrada        ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.abriendo_barrera_salida         ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.cerrando_barrera_entrada        ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_paso                  ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_salida                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.esperando_vehiculo              ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_actual.validando_identificacion        ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_entrada     ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.abriendo_barrera_salida      ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.cerrando_barrera_entrada     ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_paso               ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_salida             ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.esperando_vehiculo           ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; estado_siguiente.validando_identificacion     ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_entrada_rojo~reg0                         ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_entrada_verde~reg0                        ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_salida_rojo~reg0                          ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_salida_verde~reg0                         ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_entrada_rojo~reg0                    ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_entrada_verde~reg0                   ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_salida_rojo~reg0                     ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; semaforo_salida_verde~reg0                    ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; talanquera_entrada~reg0                       ;
+; 0.867  ; 0.867        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|inclk[0]                     ;
+; 0.867  ; 0.867        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk~inputclkctrl|outclk                       ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Setup Times                                                                       ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; identificacion_valida ; clk        ; 0.893 ; 1.445 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; 0.906 ; 1.489 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; 0.736 ; 1.306 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; 0.959 ; 1.530 ; Rise       ; clk             ;
++-----------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; identificacion_valida ; clk        ; -0.488 ; -1.046 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; -0.670 ; -1.250 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; -0.372 ; -0.911 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; -0.694 ; -1.272 ; Rise       ; clk             ;
++-----------------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Clock to Output Times                                                              ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 3.338 ; 3.380 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 3.158 ; 3.179 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 4.083 ; 4.235 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 3.169 ; 3.215 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 3.142 ; 3.160 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 3.363 ; 3.397 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 3.158 ; 3.204 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 3.141 ; 3.188 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 3.291 ; 3.322 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                      ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 3.276 ; 3.315 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 3.102 ; 3.122 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 4.020 ; 4.169 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 3.105 ; 3.149 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 3.086 ; 3.102 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 3.301 ; 3.333 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 3.094 ; 3.138 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 3.078 ; 3.123 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 3.229 ; 3.258 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -0.095 ; 0.194 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -0.095 ; 0.194 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -0.174 ; 0.0   ; 0.0      ; 0.0     ; -27.288             ;
+;  clk             ; -0.174 ; 0.000 ; N/A      ; N/A     ; -27.288             ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Setup Times                                                                       ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------------------+------------+-------+-------+------------+-----------------+
+; identificacion_valida ; clk        ; 1.666 ; 2.064 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; 1.640 ; 2.053 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; 1.377 ; 1.794 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; 1.733 ; 2.120 ; Rise       ; clk             ;
++-----------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; Data Port             ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------------------+------------+--------+--------+------------+-----------------+
+; identificacion_valida ; clk        ; -0.488 ; -1.046 ; Rise       ; clk             ;
+; tiempo_pasado         ; clk        ; -0.670 ; -1.250 ; Rise       ; clk             ;
+; vehiculo_det          ; clk        ; -0.372 ; -0.883 ; Rise       ; clk             ;
+; vehiculo_ingresado    ; clk        ; -0.694 ; -1.272 ; Rise       ; clk             ;
++-----------------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Clock to Output Times                                                              ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 5.483 ; 5.516 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 5.189 ; 5.217 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 6.566 ; 6.678 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 5.297 ; 5.313 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 5.178 ; 5.201 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 5.511 ; 5.534 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 5.295 ; 5.303 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 5.270 ; 5.280 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 5.430 ; 5.450 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                      ;
++------------------------+------------+-------+-------+------------+-----------------+
+; Data Port              ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------------------+------------+-------+-------+------------+-----------------+
+; led_entrada_rojo       ; clk        ; 3.276 ; 3.315 ; Rise       ; clk             ;
+; led_entrada_verde      ; clk        ; 3.102 ; 3.122 ; Rise       ; clk             ;
+; led_salida_rojo        ; clk        ; 4.020 ; 4.169 ; Rise       ; clk             ;
+; led_salida_verde       ; clk        ; 3.105 ; 3.149 ; Rise       ; clk             ;
+; semaforo_entrada_rojo  ; clk        ; 3.086 ; 3.102 ; Rise       ; clk             ;
+; semaforo_entrada_verde ; clk        ; 3.301 ; 3.333 ; Rise       ; clk             ;
+; semaforo_salida_rojo   ; clk        ; 3.094 ; 3.138 ; Rise       ; clk             ;
+; semaforo_salida_verde  ; clk        ; 3.078 ; 3.123 ; Rise       ; clk             ;
+; talanquera_entrada     ; clk        ; 3.229 ; 3.258 ; Rise       ; clk             ;
++------------------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                             ;
++------------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin                    ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++------------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; talanquera_entrada     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; talanquera_salida      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; semaforo_entrada_verde ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; semaforo_entrada_rojo  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; semaforo_salida_verde  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; semaforo_salida_rojo   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_entrada_verde      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_entrada_rojo       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_salida_verde       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_salida_rojo        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++------------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; identificacion_valida   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; vehiculo_ingresado      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; tiempo_pasado           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; vehiculo_det            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                    ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; talanquera_entrada     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; talanquera_salida      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; semaforo_entrada_verde ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; semaforo_entrada_rojo  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; semaforo_salida_verde  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; semaforo_salida_rojo   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; led_entrada_verde      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; led_entrada_rojo       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; led_salida_verde       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; led_salida_rojo        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.33 V              ; -0.00341 V          ; 0.17 V                               ; 0.084 V                              ; 3.33e-09 s                  ; 3.24e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.33 V             ; -0.00341 V         ; 0.17 V                              ; 0.084 V                             ; 3.33e-09 s                 ; 3.24e-09 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-07 V                   ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-07 V                  ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-07 V                   ; 2.35 V              ; -0.00444 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-10 s                  ; 9.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-07 V                  ; 2.35 V             ; -0.00444 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-10 s                 ; 9.82e-10 s                 ; Yes                       ; Yes                       ;
++------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                    ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; talanquera_entrada     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; talanquera_salida      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; semaforo_entrada_verde ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; semaforo_entrada_rojo  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; semaforo_salida_verde  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; semaforo_salida_rojo   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; led_entrada_verde      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; led_entrada_rojo       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; led_salida_verde       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; led_salida_rojo        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.64 V              ; -0.011 V            ; 0.212 V                              ; 0.198 V                              ; 2.38e-09 s                  ; 2.29e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.64 V             ; -0.011 V           ; 0.212 V                             ; 0.198 V                             ; 2.38e-09 s                 ; 2.29e-09 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-10 s                   ; 3.01e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-10 s                  ; 3.01e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-08 V                   ; 2.7 V               ; -0.0212 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-08 V                  ; 2.7 V              ; -0.0212 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
++------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 29       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 29       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 9     ; 9    ;
+; Unconstrained Output Ports      ; 9     ; 9    ;
+; Unconstrained Output Port Paths ; 9     ; 9    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Mon May 13 16:39:22 2024
+Info: Command: quartus_sta ControlTalanquera -c ControlTalanquera
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (21077): Core supply voltage is 1.2V
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'ControlTalanquera.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.095
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.095              -0.174 clk 
+Info (332146): Worst-case hold slack is 0.373
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.373               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -26.000 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info (332146): Worst-case setup slack is 0.032
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.032               0.000 clk 
+Info (332146): Worst-case hold slack is 0.339
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.339               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -26.000 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info (332146): Worst-case setup slack is 0.382
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.382               0.000 clk 
+Info (332146): Worst-case hold slack is 0.194
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.194               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -27.288 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4645 megabytes
+    Info: Processing ended: Mon May 13 16:39:24 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

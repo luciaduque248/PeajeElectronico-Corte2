@@ -1,0 +1,1698 @@
+TimeQuest Timing Analyzer report for DetectorVehicular
+Sun May 12 16:13:43 2024
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'sensor_delantero'
+ 13. Slow 1200mV 85C Model Hold: 'sensor_delantero'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'sensor_delantero'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Propagation Delay
+ 20. Minimum Propagation Delay
+ 21. Slow 1200mV 85C Model Metastability Report
+ 22. Slow 1200mV 0C Model Fmax Summary
+ 23. Slow 1200mV 0C Model Setup Summary
+ 24. Slow 1200mV 0C Model Hold Summary
+ 25. Slow 1200mV 0C Model Recovery Summary
+ 26. Slow 1200mV 0C Model Removal Summary
+ 27. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 28. Slow 1200mV 0C Model Setup: 'sensor_delantero'
+ 29. Slow 1200mV 0C Model Hold: 'sensor_delantero'
+ 30. Slow 1200mV 0C Model Minimum Pulse Width: 'sensor_delantero'
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Propagation Delay
+ 36. Minimum Propagation Delay
+ 37. Slow 1200mV 0C Model Metastability Report
+ 38. Fast 1200mV 0C Model Setup Summary
+ 39. Fast 1200mV 0C Model Hold Summary
+ 40. Fast 1200mV 0C Model Recovery Summary
+ 41. Fast 1200mV 0C Model Removal Summary
+ 42. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 43. Fast 1200mV 0C Model Setup: 'sensor_delantero'
+ 44. Fast 1200mV 0C Model Hold: 'sensor_delantero'
+ 45. Fast 1200mV 0C Model Minimum Pulse Width: 'sensor_delantero'
+ 46. Setup Times
+ 47. Hold Times
+ 48. Clock to Output Times
+ 49. Minimum Clock to Output Times
+ 50. Propagation Delay
+ 51. Minimum Propagation Delay
+ 52. Fast 1200mV 0C Model Metastability Report
+ 53. Multicorner Timing Analysis Summary
+ 54. Setup Times
+ 55. Hold Times
+ 56. Clock to Output Times
+ 57. Minimum Clock to Output Times
+ 58. Propagation Delay
+ 59. Minimum Propagation Delay
+ 60. Board Trace Model Assignments
+ 61. Input Transition Times
+ 62. Slow Corner Signal Integrity Metrics
+ 63. Fast Corner Signal Integrity Metrics
+ 64. Setup Transfers
+ 65. Hold Transfers
+ 66. Report TCCS
+ 67. Report RSKM
+ 68. Unconstrained Paths
+ 69. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; DetectorVehicular                                  ;
+; Device Family      ; Cyclone III                                        ;
+; Device Name        ; EP3C16F484C6                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                             ;
++------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------+
+; Clock Name       ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets              ;
++------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------+
+; sensor_delantero ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { sensor_delantero } ;
++------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------+
+
+
++--------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                     ;
++------------+-----------------+------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name       ; Note ;
++------------+-----------------+------------------+------+
+; 155.11 MHz ; 155.11 MHz      ; sensor_delantero ;      ;
++------------+-----------------+------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary       ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; sensor_delantero ; -5.447 ; -168.525      ;
++------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary        ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; sensor_delantero ; -1.551 ; -45.150       ;
++------------------+--------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++------------------+--------+-----------------------+
+; Clock            ; Slack  ; End Point TNS         ;
++------------------+--------+-----------------------+
+; sensor_delantero ; -3.000 ; -52.376               ;
++------------------+--------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'sensor_delantero'                                                                                     ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; -5.447 ; distancia_actual[28] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.903     ; 4.634      ;
+; -5.422 ; distancia_actual[28] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.013     ; 4.619      ;
+; -5.422 ; distancia_actual[28] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.014     ; 4.613      ;
+; -5.401 ; distancia_actual[28] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.038     ; 4.580      ;
+; -5.382 ; distancia_actual[28] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.008     ; 4.588      ;
+; -5.379 ; distancia_actual[28] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.008     ; 4.602      ;
+; -5.346 ; distancia_actual[28] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.007     ; 4.547      ;
+; -5.338 ; distancia_actual[28] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.018     ; 4.544      ;
+; -5.327 ; distancia_actual[28] ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.006     ; 4.688      ;
+; -5.322 ; distancia_actual[28] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.018     ; 4.545      ;
+; -5.321 ; distancia_actual[28] ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.019     ; 4.511      ;
+; -5.319 ; distancia_actual[25] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.783     ; 4.626      ;
+; -5.318 ; distancia_actual[28] ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.038     ; 4.508      ;
+; -5.318 ; distancia_actual[28] ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.023     ; 4.509      ;
+; -5.314 ; distancia_actual[28] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.011     ; 4.680      ;
+; -5.298 ; distancia_actual[28] ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.019     ; 4.484      ;
+; -5.295 ; distancia_actual[28] ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.037     ; 4.499      ;
+; -5.294 ; distancia_actual[25] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.893     ; 4.611      ;
+; -5.294 ; distancia_actual[25] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.894     ; 4.605      ;
+; -5.273 ; distancia_actual[25] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.918     ; 4.572      ;
+; -5.269 ; distancia_actual[28] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.904     ; 4.458      ;
+; -5.254 ; distancia_actual[25] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.888     ; 4.580      ;
+; -5.251 ; distancia_actual[25] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.888     ; 4.594      ;
+; -5.246 ; distancia_actual[28] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.017     ; 4.596      ;
+; -5.229 ; distancia_actual[28] ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.035     ; 4.396      ;
+; -5.223 ; distancia_actual[28] ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.019     ; 4.407      ;
+; -5.219 ; distancia_actual[2]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.766     ; 4.543      ;
+; -5.218 ; distancia_actual[25] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.887     ; 4.539      ;
+; -5.216 ; distancia_actual[28] ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.019     ; 4.439      ;
+; -5.214 ; distancia_actual[1]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.763     ; 4.541      ;
+; -5.213 ; distancia_actual[28] ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.008     ; 4.573      ;
+; -5.210 ; distancia_actual[28] ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.018     ; 4.440      ;
+; -5.210 ; distancia_actual[25] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.898     ; 4.536      ;
+; -5.199 ; distancia_actual[28] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.013     ; 4.554      ;
+; -5.199 ; distancia_actual[25] ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.886     ; 4.680      ;
+; -5.196 ; distancia_actual[28] ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.024     ; 4.539      ;
+; -5.194 ; distancia_actual[25] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.898     ; 4.537      ;
+; -5.193 ; distancia_actual[25] ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.503      ;
+; -5.190 ; distancia_actual[2]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.876     ; 4.524      ;
+; -5.190 ; distancia_actual[2]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.877     ; 4.518      ;
+; -5.190 ; distancia_actual[25] ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.918     ; 4.500      ;
+; -5.190 ; distancia_actual[25] ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.903     ; 4.501      ;
+; -5.189 ; distancia_actual[1]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.873     ; 4.526      ;
+; -5.189 ; distancia_actual[1]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.874     ; 4.520      ;
+; -5.187 ; distancia_actual[28] ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.022     ; 4.533      ;
+; -5.187 ; distancia_actual[8]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.784     ; 4.493      ;
+; -5.186 ; distancia_actual[25] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.891     ; 4.672      ;
+; -5.184 ; distancia_actual[28] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.007     ; 4.544      ;
+; -5.184 ; distancia_actual[7]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.782     ; 4.492      ;
+; -5.173 ; distancia_actual[16] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.796     ; 4.467      ;
+; -5.170 ; distancia_actual[25] ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.476      ;
+; -5.169 ; distancia_actual[2]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.901     ; 4.485      ;
+; -5.168 ; distancia_actual[1]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.898     ; 4.487      ;
+; -5.167 ; distancia_actual[25] ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.917     ; 4.491      ;
+; -5.163 ; distancia_actual[27] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.788     ; 4.465      ;
+; -5.162 ; distancia_actual[28] ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.023     ; 4.498      ;
+; -5.162 ; distancia_actual[8]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.894     ; 4.478      ;
+; -5.162 ; distancia_actual[8]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.895     ; 4.472      ;
+; -5.162 ; distancia_actual[14] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.794     ; 4.458      ;
+; -5.159 ; distancia_actual[7]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.892     ; 4.477      ;
+; -5.159 ; distancia_actual[7]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.893     ; 4.471      ;
+; -5.158 ; distancia_actual[28] ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; 1.000        ; -1.023     ; 4.502      ;
+; -5.150 ; distancia_actual[2]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.871     ; 4.493      ;
+; -5.149 ; distancia_actual[1]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.868     ; 4.495      ;
+; -5.148 ; distancia_actual[16] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.906     ; 4.452      ;
+; -5.148 ; distancia_actual[16] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.907     ; 4.446      ;
+; -5.147 ; distancia_actual[2]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.871     ; 4.507      ;
+; -5.146 ; distancia_actual[1]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.868     ; 4.509      ;
+; -5.141 ; distancia_actual[8]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.919     ; 4.439      ;
+; -5.141 ; distancia_actual[25] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.784     ; 4.450      ;
+; -5.138 ; distancia_actual[27] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.898     ; 4.450      ;
+; -5.138 ; distancia_actual[27] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.444      ;
+; -5.138 ; distancia_actual[7]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.917     ; 4.438      ;
+; -5.137 ; distancia_actual[14] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.904     ; 4.443      ;
+; -5.137 ; distancia_actual[14] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.905     ; 4.437      ;
+; -5.127 ; distancia_actual[16] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.931     ; 4.413      ;
+; -5.122 ; distancia_actual[8]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.889     ; 4.447      ;
+; -5.119 ; distancia_actual[8]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.889     ; 4.461      ;
+; -5.119 ; distancia_actual[7]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.887     ; 4.446      ;
+; -5.118 ; distancia_actual[25] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.897     ; 4.588      ;
+; -5.117 ; distancia_actual[27] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.923     ; 4.411      ;
+; -5.116 ; distancia_actual[14] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.929     ; 4.404      ;
+; -5.116 ; distancia_actual[7]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.887     ; 4.460      ;
+; -5.114 ; distancia_actual[2]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.870     ; 4.452      ;
+; -5.113 ; distancia_actual[1]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.867     ; 4.454      ;
+; -5.108 ; distancia_actual[16] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.901     ; 4.421      ;
+; -5.106 ; distancia_actual[2]  ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.881     ; 4.449      ;
+; -5.105 ; distancia_actual[16] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.901     ; 4.435      ;
+; -5.105 ; distancia_actual[1]  ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.878     ; 4.451      ;
+; -5.101 ; distancia_actual[25] ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.915     ; 4.388      ;
+; -5.098 ; distancia_actual[27] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.893     ; 4.419      ;
+; -5.097 ; distancia_actual[14] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.412      ;
+; -5.095 ; distancia_actual[27] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.893     ; 4.433      ;
+; -5.095 ; distancia_actual[2]  ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.869     ; 4.593      ;
+; -5.095 ; distancia_actual[25] ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.399      ;
+; -5.094 ; distancia_actual[14] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.426      ;
+; -5.094 ; distancia_actual[1]  ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.866     ; 4.595      ;
+; -5.090 ; distancia_actual[2]  ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.881     ; 4.450      ;
+; -5.089 ; distancia_actual[2]  ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.882     ; 4.416      ;
+; -5.089 ; distancia_actual[1]  ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.878     ; 4.452      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'sensor_delantero'                                                                                      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; -1.551 ; sensor_delantero     ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.589      ; 4.038      ;
+; -1.516 ; sensor_delantero     ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.471      ; 3.955      ;
+; -1.509 ; sensor_delantero     ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.469      ; 3.960      ;
+; -1.505 ; sensor_delantero     ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.469      ; 3.964      ;
+; -1.505 ; sensor_delantero     ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.470      ; 3.965      ;
+; -1.504 ; sensor_delantero     ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.453      ; 3.949      ;
+; -1.504 ; sensor_delantero     ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.466      ; 3.962      ;
+; -1.501 ; sensor_delantero     ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.453      ; 3.952      ;
+; -1.440 ; sensor_delantero     ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.465      ; 4.025      ;
+; -1.440 ; sensor_delantero     ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.464      ; 4.024      ;
+; -1.430 ; sensor_delantero     ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.464      ; 4.034      ;
+; -1.411 ; sensor_delantero     ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.465      ; 4.054      ;
+; -1.406 ; sensor_delantero     ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.469      ; 4.063      ;
+; -1.405 ; sensor_delantero     ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.470      ; 4.065      ;
+; -1.404 ; sensor_delantero     ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.470      ; 4.066      ;
+; -1.402 ; sensor_delantero     ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.450      ; 4.048      ;
+; -1.402 ; sensor_delantero     ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.463      ; 4.061      ;
+; -1.401 ; sensor_delantero     ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.475      ; 4.074      ;
+; -1.393 ; sensor_delantero     ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.450      ; 4.057      ;
+; -1.392 ; sensor_delantero     ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.471      ; 4.079      ;
+; -1.391 ; sensor_delantero     ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.482      ; 4.091      ;
+; -1.385 ; sensor_delantero     ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.482      ; 4.097      ;
+; -1.383 ; sensor_delantero     ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.590      ; 4.207      ;
+; -1.380 ; sensor_delantero     ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.469      ; 4.089      ;
+; -1.364 ; sensor_delantero     ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.589      ; 3.745      ;
+; -1.360 ; sensor_delantero     ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.480      ; 4.120      ;
+; -1.346 ; sensor_delantero     ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.480      ; 4.134      ;
+; -1.335 ; sensor_delantero     ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.469      ; 3.654      ;
+; -1.335 ; sensor_delantero     ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.470      ; 3.655      ;
+; -1.331 ; sensor_delantero     ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.481      ; 4.150      ;
+; -1.322 ; sensor_delantero     ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.471      ; 3.669      ;
+; -1.320 ; sensor_delantero     ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.478      ; 4.158      ;
+; -1.316 ; sensor_delantero     ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.469      ; 3.673      ;
+; -1.314 ; sensor_delantero     ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.483      ; 4.169      ;
+; -1.313 ; sensor_delantero     ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.474      ; 4.161      ;
+; -1.309 ; sensor_delantero     ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.466      ; 3.677      ;
+; -1.309 ; sensor_delantero     ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.475      ; 4.166      ;
+; -1.307 ; sensor_delantero     ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.453      ; 3.666      ;
+; -1.307 ; sensor_delantero     ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.453      ; 3.666      ;
+; -1.297 ; sensor_delantero     ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.450      ; 4.153      ;
+; -1.241 ; sensor_delantero     ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.464      ; 3.743      ;
+; -1.241 ; sensor_delantero     ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.465      ; 3.744      ;
+; -1.241 ; sensor_delantero     ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.464      ; 3.743      ;
+; -1.224 ; sensor_delantero     ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.450      ; 3.746      ;
+; -1.220 ; sensor_delantero     ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.450      ; 3.750      ;
+; -1.205 ; sensor_delantero     ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.465      ; 3.780      ;
+; -1.203 ; sensor_delantero     ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.469      ; 3.786      ;
+; -1.198 ; sensor_delantero     ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.482      ; 3.804      ;
+; -1.195 ; sensor_delantero     ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.482      ; 3.807      ;
+; -1.191 ; sensor_delantero     ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.463      ; 3.792      ;
+; -1.187 ; sensor_delantero     ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.470      ; 3.803      ;
+; -1.184 ; sensor_delantero     ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.470      ; 3.806      ;
+; -1.182 ; sensor_delantero     ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.471      ; 3.809      ;
+; -1.180 ; sensor_delantero     ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.475      ; 3.815      ;
+; -1.172 ; sensor_delantero     ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.469      ; 3.817      ;
+; -1.137 ; sensor_delantero     ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.480      ; 3.863      ;
+; -1.117 ; sensor_delantero     ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.450      ; 3.853      ;
+; -1.116 ; sensor_delantero     ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.480      ; 3.884      ;
+; -1.112 ; sensor_delantero     ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.590      ; 3.998      ;
+; -1.107 ; sensor_delantero     ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.481      ; 3.894      ;
+; -1.098 ; sensor_delantero     ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.483      ; 3.905      ;
+; -1.096 ; sensor_delantero     ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.478      ; 3.902      ;
+; -1.090 ; sensor_delantero     ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.474      ; 3.904      ;
+; -1.084 ; sensor_delantero     ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.475      ; 3.911      ;
+; 1.494  ; distancia_actual[31] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.049      ; 1.543      ;
+; 1.620  ; distancia_actual[25] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.664      ;
+; 1.661  ; distancia_actual[30] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.045      ; 1.706      ;
+; 1.669  ; distancia_actual[27] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.713      ;
+; 1.674  ; distancia_actual[4]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.718      ;
+; 1.679  ; distancia_actual[1]  ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.043      ; 1.722      ;
+; 1.684  ; distancia_actual[28] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.049      ; 1.733      ;
+; 1.696  ; distancia_actual[22] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.740      ;
+; 1.714  ; distancia_actual[29] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.045      ; 1.759      ;
+; 1.728  ; distancia_actual[2]  ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.772      ;
+; 1.743  ; distancia_actual[26] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.787      ;
+; 1.763  ; distancia_actual[23] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.807      ;
+; 1.769  ; distancia_actual[3]  ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.043      ; 1.812      ;
+; 1.769  ; distancia_actual[24] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.813      ;
+; 1.797  ; distancia_actual[8]  ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.841      ;
+; 1.842  ; distancia_actual[26] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.160      ; 2.002      ;
+; 1.843  ; distancia_actual[30] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.152      ; 1.995      ;
+; 1.867  ; distancia_actual[7]  ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.911      ;
+; 1.868  ; distancia_actual[27] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.159      ; 2.027      ;
+; 1.885  ; distancia_actual[26] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.052      ; 1.937      ;
+; 1.893  ; distancia_actual[26] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.159      ; 2.052      ;
+; 1.898  ; distancia_actual[27] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.051      ; 1.949      ;
+; 1.900  ; distancia_actual[27] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.158      ; 2.058      ;
+; 1.901  ; distancia_actual[21] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.045      ; 1.946      ;
+; 1.902  ; distancia_actual[6]  ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.946      ;
+; 1.908  ; distancia_actual[26] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.052      ; 1.960      ;
+; 1.911  ; distancia_actual[2]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.041      ; 1.952      ;
+; 1.911  ; distancia_actual[27] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.051      ; 1.962      ;
+; 1.915  ; distancia_actual[28] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; -0.059     ; 1.856      ;
+; 1.917  ; distancia_actual[26] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.045      ; 1.962      ;
+; 1.917  ; distancia_actual[28] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; -0.059     ; 1.858      ;
+; 1.918  ; distancia_actual[21] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.037      ; 1.955      ;
+; 1.919  ; distancia_actual[28] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.048      ; 1.967      ;
+; 1.928  ; distancia_actual[0]  ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.972      ;
+; 1.934  ; distancia_actual[3]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.040      ; 1.974      ;
+; 1.935  ; distancia_actual[24] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.043      ; 1.978      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'sensor_delantero'                                                                     ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock            ; Clock Edge ; Target                                ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; sensor_delantero ; Rise       ; sensor_delantero                      ;
+; -0.687 ; -0.687       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[14]|datad            ;
+; -0.687 ; -0.687       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[16]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[13]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[15]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[21]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[22]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[23]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[24]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[25]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[26]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[27]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[29]|datad            ;
+; -0.686 ; -0.686       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[30]|datad            ;
+; -0.685 ; -0.685       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[12]|datad            ;
+; -0.684 ; -0.684       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[10]|datad            ;
+; -0.684 ; -0.684       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[11]|datad            ;
+; -0.684 ; -0.684       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[20]|datad            ;
+; -0.684 ; -0.684       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[9]|datad             ;
+; -0.683 ; -0.683       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[17]|datad            ;
+; -0.683 ; -0.683       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[18]|datad            ;
+; -0.683 ; -0.683       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[19]|datad            ;
+; -0.683 ; -0.683       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[28]                  ;
+; -0.683 ; -0.683       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[31]                  ;
+; -0.683 ; -0.683       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[5]|datad             ;
+; -0.683 ; -0.683       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[7]|datad             ;
+; -0.683 ; -0.683       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[8]|datad             ;
+; -0.682 ; -0.682       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[0]|datad             ;
+; -0.682 ; -0.682       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[28]|datac            ;
+; -0.682 ; -0.682       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[2]|datad             ;
+; -0.682 ; -0.682       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[31]|datac            ;
+; -0.682 ; -0.682       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[4]|datad             ;
+; -0.682 ; -0.682       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[6]|datad             ;
+; -0.681 ; -0.681       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]|datad             ;
+; -0.681 ; -0.681       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[3]|datad             ;
+; -0.667 ; -0.667       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[14]                  ;
+; -0.667 ; -0.667       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[16]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[13]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[15]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[21]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[22]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[23]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[24]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[25]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[26]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[27]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[29]                  ;
+; -0.666 ; -0.666       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[30]                  ;
+; -0.665 ; -0.665       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[12]                  ;
+; -0.664 ; -0.664       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[10]                  ;
+; -0.664 ; -0.664       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[11]                  ;
+; -0.664 ; -0.664       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[20]                  ;
+; -0.664 ; -0.664       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[9]                   ;
+; -0.663 ; -0.663       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[17]                  ;
+; -0.663 ; -0.663       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[18]                  ;
+; -0.663 ; -0.663       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[19]                  ;
+; -0.663 ; -0.663       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[5]                   ;
+; -0.663 ; -0.663       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[7]                   ;
+; -0.663 ; -0.663       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[8]                   ;
+; -0.662 ; -0.662       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[0]                   ;
+; -0.662 ; -0.662       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[2]                   ;
+; -0.662 ; -0.662       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[4]                   ;
+; -0.662 ; -0.662       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[6]                   ;
+; -0.661 ; -0.661       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[1]                   ;
+; -0.661 ; -0.661       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[3]                   ;
+; -0.659 ; -0.659       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|inclk[0] ;
+; -0.659 ; -0.659       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|outclk   ;
+; -0.621 ; -0.621       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0|combout         ;
+; -0.115 ; -0.115       ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0|combout         ;
+; -0.077 ; -0.077       ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|inclk[0] ;
+; -0.077 ; -0.077       ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|outclk   ;
+; -0.076 ; -0.076       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[0]                   ;
+; -0.076 ; -0.076       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[1]                   ;
+; -0.076 ; -0.076       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[2]                   ;
+; -0.076 ; -0.076       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[3]                   ;
+; -0.076 ; -0.076       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[4]                   ;
+; -0.075 ; -0.075       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[6]                   ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[17]                  ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[18]                  ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[19]                  ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[5]                   ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[7]                   ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[8]                   ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[10]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[11]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[12]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[20]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[9]                   ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[13]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[14]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[15]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[16]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[21]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[22]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[24]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[25]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[29]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[30]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[23]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[26]                  ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Times                                                                         ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 0.554 ; 0.922 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 2.680 ; 3.088 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 1.844 ; 1.551 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 1.166 ; 0.782 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                   ;
++--------------------+------------------+--------+--------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise   ; Fall   ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+--------+--------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 6.118  ; 6.471  ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 12.200 ; 12.341 ; Fall       ; sensor_delantero ;
++--------------------+------------------+--------+--------+------------+------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                         ;
++--------------------+------------------+-------+-------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+-------+-------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 6.033 ; 6.381 ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 6.033 ; 6.381 ; Fall       ; sensor_delantero ;
++--------------------+------------------+-------+-------+------------+------------------+
+
+
++---------------------------------------------------------------+
+; Propagation Delay                                             ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 8.402 ;    ;    ; 8.950 ;
++----------------+--------------------+-------+----+----+-------+
+
+
++---------------------------------------------------------------+
+; Minimum Propagation Delay                                     ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 8.215 ;    ;    ; 8.713 ;
++----------------+--------------------+-------+----+----+-------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                      ;
++------------+-----------------+------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name       ; Note ;
++------------+-----------------+------------------+------+
+; 169.75 MHz ; 169.75 MHz      ; sensor_delantero ;      ;
++------------+-----------------+------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary        ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; sensor_delantero ; -4.891 ; -148.014      ;
++------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary         ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; sensor_delantero ; -1.348 ; -39.979       ;
++------------------+--------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++------------------+--------+----------------------+
+; Clock            ; Slack  ; End Point TNS        ;
++------------------+--------+----------------------+
+; sensor_delantero ; -3.000 ; -41.390              ;
++------------------+--------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'sensor_delantero'                                                                                      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; -4.891 ; distancia_actual[28] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.804     ; 4.272      ;
+; -4.777 ; distancia_actual[28] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.905     ; 4.160      ;
+; -4.774 ; distancia_actual[28] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.904     ; 4.163      ;
+; -4.763 ; distancia_actual[25] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.693     ; 4.255      ;
+; -4.755 ; distancia_actual[28] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.146      ;
+; -4.752 ; distancia_actual[28] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.898     ; 4.157      ;
+; -4.749 ; distancia_actual[28] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.928     ; 4.119      ;
+; -4.694 ; distancia_actual[28] ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.909     ; 4.076      ;
+; -4.687 ; distancia_actual[28] ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.897     ; 4.213      ;
+; -4.685 ; distancia_actual[28] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.897     ; 4.078      ;
+; -4.684 ; distancia_actual[28] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.909     ; 4.070      ;
+; -4.677 ; distancia_actual[28] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.901     ; 4.207      ;
+; -4.673 ; distancia_actual[28] ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.909     ; 4.052      ;
+; -4.671 ; distancia_actual[28] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.909     ; 4.077      ;
+; -4.666 ; distancia_actual[2]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.677     ; 4.174      ;
+; -4.654 ; distancia_actual[28] ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.928     ; 4.024      ;
+; -4.649 ; distancia_actual[28] ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.914     ; 4.025      ;
+; -4.649 ; distancia_actual[25] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.794     ; 4.143      ;
+; -4.649 ; distancia_actual[1]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.674     ; 4.160      ;
+; -4.646 ; distancia_actual[25] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.793     ; 4.146      ;
+; -4.640 ; distancia_actual[27] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.698     ; 4.127      ;
+; -4.627 ; distancia_actual[25] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.788     ; 4.129      ;
+; -4.626 ; distancia_actual[28] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.805     ; 4.011      ;
+; -4.624 ; distancia_actual[25] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.787     ; 4.140      ;
+; -4.622 ; distancia_actual[28] ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.927     ; 4.011      ;
+; -4.621 ; distancia_actual[25] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.817     ; 4.102      ;
+; -4.606 ; distancia_actual[28] ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.899     ; 4.132      ;
+; -4.585 ; distancia_actual[28] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.908     ; 4.099      ;
+; -4.578 ; distancia_actual[28] ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.925     ; 3.937      ;
+; -4.578 ; distancia_actual[28] ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.909     ; 3.949      ;
+; -4.571 ; distancia_actual[16] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.706     ; 4.050      ;
+; -4.566 ; distancia_actual[8]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.695     ; 4.056      ;
+; -4.566 ; distancia_actual[25] ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 4.059      ;
+; -4.563 ; distancia_actual[28] ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.915     ; 4.071      ;
+; -4.560 ; distancia_actual[7]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.693     ; 4.052      ;
+; -4.559 ; distancia_actual[28] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.904     ; 4.080      ;
+; -4.559 ; distancia_actual[25] ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.786     ; 4.196      ;
+; -4.557 ; distancia_actual[25] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.786     ; 4.061      ;
+; -4.556 ; distancia_actual[25] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 4.053      ;
+; -4.554 ; distancia_actual[28] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.897     ; 4.079      ;
+; -4.554 ; distancia_actual[14] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.704     ; 4.035      ;
+; -4.552 ; distancia_actual[2]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.778     ; 4.062      ;
+; -4.549 ; distancia_actual[26] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.697     ; 4.037      ;
+; -4.549 ; distancia_actual[2]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.777     ; 4.065      ;
+; -4.549 ; distancia_actual[25] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.790     ; 4.190      ;
+; -4.547 ; distancia_actual[28] ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.913     ; 4.059      ;
+; -4.545 ; distancia_actual[25] ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 4.035      ;
+; -4.543 ; distancia_actual[25] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 4.060      ;
+; -4.537 ; distancia_actual[28] ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.909     ; 3.942      ;
+; -4.535 ; distancia_actual[1]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.775     ; 4.048      ;
+; -4.532 ; distancia_actual[3]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.677     ; 4.040      ;
+; -4.532 ; distancia_actual[1]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.774     ; 4.051      ;
+; -4.531 ; distancia_actual[28] ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.908     ; 3.944      ;
+; -4.530 ; distancia_actual[2]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.772     ; 4.048      ;
+; -4.527 ; distancia_actual[28] ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.914     ; 4.028      ;
+; -4.527 ; distancia_actual[2]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.771     ; 4.059      ;
+; -4.526 ; distancia_actual[27] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.799     ; 4.015      ;
+; -4.526 ; distancia_actual[25] ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.817     ; 4.007      ;
+; -4.524 ; distancia_actual[2]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.801     ; 4.021      ;
+; -4.523 ; distancia_actual[27] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 4.018      ;
+; -4.521 ; distancia_actual[25] ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.803     ; 4.008      ;
+; -4.513 ; distancia_actual[28] ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.914     ; 4.021      ;
+; -4.513 ; distancia_actual[1]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.769     ; 4.034      ;
+; -4.511 ; distancia_actual[1]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 4.011      ;
+; -4.510 ; distancia_actual[1]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.768     ; 4.045      ;
+; -4.504 ; distancia_actual[27] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.793     ; 4.001      ;
+; -4.501 ; distancia_actual[27] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.792     ; 4.012      ;
+; -4.498 ; distancia_actual[27] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.822     ; 3.974      ;
+; -4.498 ; distancia_actual[25] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.694     ; 3.994      ;
+; -4.494 ; distancia_actual[25] ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.816     ; 3.994      ;
+; -4.481 ; distancia_actual[2]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.770     ; 4.001      ;
+; -4.479 ; distancia_actual[1]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.767     ; 4.002      ;
+; -4.478 ; distancia_actual[25] ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.788     ; 4.115      ;
+; -4.474 ; distancia_actual[8]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.795     ; 3.972      ;
+; -4.472 ; distancia_actual[8]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.796     ; 3.964      ;
+; -4.472 ; distancia_actual[7]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.793     ; 3.972      ;
+; -4.470 ; distancia_actual[7]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.794     ; 3.964      ;
+; -4.469 ; distancia_actual[2]  ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.782     ; 3.978      ;
+; -4.468 ; distancia_actual[16] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.806     ; 3.955      ;
+; -4.468 ; distancia_actual[8]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.819     ; 3.947      ;
+; -4.466 ; distancia_actual[16] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.807     ; 3.947      ;
+; -4.466 ; distancia_actual[7]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.817     ; 3.947      ;
+; -4.462 ; distancia_actual[16] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.830     ; 3.930      ;
+; -4.462 ; distancia_actual[2]  ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.770     ; 4.115      ;
+; -4.460 ; distancia_actual[14] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.804     ; 3.949      ;
+; -4.459 ; distancia_actual[2]  ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.782     ; 3.972      ;
+; -4.458 ; distancia_actual[14] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.805     ; 3.941      ;
+; -4.457 ; distancia_actual[25] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.797     ; 4.082      ;
+; -4.454 ; distancia_actual[14] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.828     ; 3.924      ;
+; -4.452 ; distancia_actual[2]  ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.774     ; 4.109      ;
+; -4.452 ; distancia_actual[1]  ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.779     ; 3.964      ;
+; -4.450 ; distancia_actual[25] ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.814     ; 3.920      ;
+; -4.450 ; distancia_actual[25] ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.798     ; 3.932      ;
+; -4.448 ; distancia_actual[2]  ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.782     ; 3.954      ;
+; -4.447 ; distancia_actual[1]  ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.779     ; 3.963      ;
+; -4.446 ; distancia_actual[8]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.790     ; 3.946      ;
+; -4.446 ; distancia_actual[2]  ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.782     ; 3.979      ;
+; -4.446 ; distancia_actual[4]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.674     ; 3.957      ;
+; -4.445 ; distancia_actual[28] ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.924     ; 3.946      ;
+; -4.445 ; distancia_actual[1]  ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.767     ; 4.101      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'sensor_delantero'                                                                                       ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; -1.348 ; sensor_delantero     ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.038      ; 3.690      ;
+; -1.343 ; sensor_delantero     ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.931      ; 3.588      ;
+; -1.337 ; sensor_delantero     ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.929      ; 3.592      ;
+; -1.334 ; sensor_delantero     ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.929      ; 3.595      ;
+; -1.333 ; sensor_delantero     ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.927      ; 3.594      ;
+; -1.330 ; sensor_delantero     ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.930      ; 3.600      ;
+; -1.323 ; sensor_delantero     ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.913      ; 3.590      ;
+; -1.319 ; sensor_delantero     ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.913      ; 3.594      ;
+; -1.287 ; sensor_delantero     ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.924      ; 3.637      ;
+; -1.285 ; sensor_delantero     ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.924      ; 3.639      ;
+; -1.280 ; sensor_delantero     ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.924      ; 3.644      ;
+; -1.267 ; sensor_delantero     ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.925      ; 3.658      ;
+; -1.252 ; sensor_delantero     ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.923      ; 3.671      ;
+; -1.251 ; sensor_delantero     ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.929      ; 3.678      ;
+; -1.248 ; sensor_delantero     ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.929      ; 3.681      ;
+; -1.248 ; sensor_delantero     ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.934      ; 3.686      ;
+; -1.242 ; sensor_delantero     ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.929      ; 3.687      ;
+; -1.240 ; sensor_delantero     ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.930      ; 3.690      ;
+; -1.239 ; sensor_delantero     ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.910      ; 3.671      ;
+; -1.230 ; sensor_delantero     ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.910      ; 3.680      ;
+; -1.220 ; sensor_delantero     ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 5.040      ; 3.820      ;
+; -1.218 ; sensor_delantero     ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.929      ; 3.711      ;
+; -1.208 ; sensor_delantero     ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.940      ; 3.732      ;
+; -1.207 ; sensor_delantero     ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.942      ; 3.735      ;
+; -1.203 ; sensor_delantero     ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.942      ; 3.739      ;
+; -1.194 ; sensor_delantero     ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.940      ; 3.746      ;
+; -1.182 ; sensor_delantero     ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.940      ; 3.758      ;
+; -1.172 ; sensor_delantero     ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.938      ; 3.766      ;
+; -1.169 ; sensor_delantero     ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.933      ; 3.764      ;
+; -1.167 ; sensor_delantero     ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.942      ; 3.775      ;
+; -1.162 ; sensor_delantero     ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.934      ; 3.772      ;
+; -1.141 ; sensor_delantero     ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 4.910      ; 3.769      ;
+; -1.085 ; sensor_delantero     ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.038      ; 3.473      ;
+; -1.072 ; sensor_delantero     ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.929      ; 3.377      ;
+; -1.072 ; sensor_delantero     ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.930      ; 3.378      ;
+; -1.056 ; sensor_delantero     ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.931      ; 3.395      ;
+; -1.050 ; sensor_delantero     ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.929      ; 3.399      ;
+; -1.045 ; sensor_delantero     ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.913      ; 3.388      ;
+; -1.044 ; sensor_delantero     ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.927      ; 3.403      ;
+; -1.036 ; sensor_delantero     ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.913      ; 3.397      ;
+; -0.991 ; sensor_delantero     ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.924      ; 3.453      ;
+; -0.989 ; sensor_delantero     ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.924      ; 3.455      ;
+; -0.986 ; sensor_delantero     ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.924      ; 3.458      ;
+; -0.971 ; sensor_delantero     ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.910      ; 3.459      ;
+; -0.959 ; sensor_delantero     ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.910      ; 3.471      ;
+; -0.955 ; sensor_delantero     ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.925      ; 3.490      ;
+; -0.949 ; sensor_delantero     ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.929      ; 3.500      ;
+; -0.944 ; sensor_delantero     ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.934      ; 3.510      ;
+; -0.943 ; sensor_delantero     ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.923      ; 3.500      ;
+; -0.942 ; sensor_delantero     ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.929      ; 3.507      ;
+; -0.941 ; sensor_delantero     ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.942      ; 3.521      ;
+; -0.940 ; sensor_delantero     ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.930      ; 3.510      ;
+; -0.937 ; sensor_delantero     ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.929      ; 3.512      ;
+; -0.937 ; sensor_delantero     ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.942      ; 3.525      ;
+; -0.914 ; sensor_delantero     ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.929      ; 3.535      ;
+; -0.884 ; sensor_delantero     ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.940      ; 3.576      ;
+; -0.872 ; sensor_delantero     ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.940      ; 3.588      ;
+; -0.863 ; sensor_delantero     ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.940      ; 3.597      ;
+; -0.856 ; sensor_delantero     ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.910      ; 3.574      ;
+; -0.853 ; sensor_delantero     ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.933      ; 3.600      ;
+; -0.851 ; sensor_delantero     ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.934      ; 3.603      ;
+; -0.843 ; sensor_delantero     ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.942      ; 3.619      ;
+; -0.842 ; sensor_delantero     ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; -0.500       ; 4.938      ; 3.616      ;
+; -0.837 ; sensor_delantero     ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; -0.500       ; 5.040      ; 3.723      ;
+; 1.329  ; distancia_actual[31] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.043      ; 1.372      ;
+; 1.487  ; distancia_actual[25] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.525      ;
+; 1.493  ; distancia_actual[28] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.044      ; 1.537      ;
+; 1.497  ; distancia_actual[30] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.039      ; 1.536      ;
+; 1.505  ; distancia_actual[4]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.543      ;
+; 1.509  ; distancia_actual[27] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.547      ;
+; 1.515  ; distancia_actual[1]  ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.037      ; 1.552      ;
+; 1.523  ; distancia_actual[22] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.561      ;
+; 1.546  ; distancia_actual[29] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.039      ; 1.585      ;
+; 1.580  ; distancia_actual[26] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.618      ;
+; 1.582  ; distancia_actual[2]  ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.620      ;
+; 1.588  ; distancia_actual[23] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.626      ;
+; 1.627  ; distancia_actual[24] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.665      ;
+; 1.628  ; distancia_actual[3]  ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.037      ; 1.665      ;
+; 1.637  ; distancia_actual[8]  ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.039      ; 1.676      ;
+; 1.641  ; distancia_actual[30] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.135      ; 1.776      ;
+; 1.649  ; distancia_actual[26] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.145      ; 1.794      ;
+; 1.677  ; distancia_actual[27] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.144      ; 1.821      ;
+; 1.685  ; distancia_actual[27] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.142      ; 1.827      ;
+; 1.685  ; distancia_actual[26] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.143      ; 1.828      ;
+; 1.702  ; distancia_actual[28] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.042      ; 1.744      ;
+; 1.706  ; distancia_actual[27] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.046      ; 1.752      ;
+; 1.711  ; distancia_actual[26] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.047      ; 1.758      ;
+; 1.714  ; distancia_actual[26] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.047      ; 1.761      ;
+; 1.716  ; distancia_actual[7]  ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.754      ;
+; 1.719  ; distancia_actual[26] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.039      ; 1.758      ;
+; 1.723  ; distancia_actual[28] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; -0.054     ; 1.669      ;
+; 1.729  ; distancia_actual[29] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.135      ; 1.864      ;
+; 1.731  ; distancia_actual[25] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.149      ; 1.880      ;
+; 1.732  ; distancia_actual[0]  ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.770      ;
+; 1.737  ; distancia_actual[6]  ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.038      ; 1.775      ;
+; 1.739  ; distancia_actual[27] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.046      ; 1.785      ;
+; 1.745  ; distancia_actual[2]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.035      ; 1.780      ;
+; 1.748  ; distancia_actual[28] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; -0.054     ; 1.694      ;
+; 1.749  ; distancia_actual[21] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.030      ; 1.779      ;
+; 1.750  ; distancia_actual[21] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.039      ; 1.789      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'sensor_delantero'                                                                      ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock            ; Clock Edge ; Target                                ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; sensor_delantero ; Rise       ; sensor_delantero                      ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[13]|datad            ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[14]|datad            ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[15]|datad            ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[16]|datad            ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[21]|datad            ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[29]|datad            ;
+; -0.527 ; -0.527       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[30]|datad            ;
+; -0.526 ; -0.526       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[22]|datad            ;
+; -0.526 ; -0.526       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[23]|datad            ;
+; -0.526 ; -0.526       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[25]|datad            ;
+; -0.526 ; -0.526       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[26]|datad            ;
+; -0.526 ; -0.526       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[27]|datad            ;
+; -0.526 ; -0.526       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[6]|datad             ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[10]|datad            ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[17]|datad            ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[18]|datad            ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[19]|datad            ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[24]|datad            ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[5]|datad             ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[7]|datad             ;
+; -0.525 ; -0.525       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[8]|datad             ;
+; -0.524 ; -0.524       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[11]|datad            ;
+; -0.524 ; -0.524       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[12]|datad            ;
+; -0.524 ; -0.524       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[20]|datad            ;
+; -0.524 ; -0.524       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[9]|datad             ;
+; -0.523 ; -0.523       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[0]|datad             ;
+; -0.523 ; -0.523       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[2]|datad             ;
+; -0.523 ; -0.523       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[4]|datad             ;
+; -0.522 ; -0.522       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]|datad             ;
+; -0.522 ; -0.522       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[3]|datad             ;
+; -0.521 ; -0.521       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[28]|datac            ;
+; -0.520 ; -0.520       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[31]|datac            ;
+; -0.519 ; -0.519       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[28]                  ;
+; -0.518 ; -0.518       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[31]                  ;
+; -0.516 ; -0.516       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|inclk[0] ;
+; -0.516 ; -0.516       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|outclk   ;
+; -0.504 ; -0.504       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[14]                  ;
+; -0.504 ; -0.504       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[29]                  ;
+; -0.504 ; -0.504       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[30]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[13]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[15]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[16]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[21]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[22]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[23]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[25]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[26]                  ;
+; -0.503 ; -0.503       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[27]                  ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[17]                  ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[18]                  ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[19]                  ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[24]                  ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[5]                   ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[6]                   ;
+; -0.502 ; -0.502       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[7]                   ;
+; -0.501 ; -0.501       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[10]                  ;
+; -0.501 ; -0.501       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[11]                  ;
+; -0.501 ; -0.501       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[12]                  ;
+; -0.501 ; -0.501       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[20]                  ;
+; -0.501 ; -0.501       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[8]                   ;
+; -0.501 ; -0.501       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[9]                   ;
+; -0.499 ; -0.499       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[0]                   ;
+; -0.499 ; -0.499       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[1]                   ;
+; -0.499 ; -0.499       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[2]                   ;
+; -0.499 ; -0.499       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[3]                   ;
+; -0.499 ; -0.499       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[4]                   ;
+; -0.490 ; -0.490       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0|combout         ;
+; -0.082 ; -0.082       ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0|combout         ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[1]                   ;
+; -0.074 ; -0.074       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[3]                   ;
+; -0.073 ; -0.073       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[0]                   ;
+; -0.073 ; -0.073       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[2]                   ;
+; -0.073 ; -0.073       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[4]                   ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[11]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[12]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[20]                  ;
+; -0.072 ; -0.072       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[9]                   ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[10]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[17]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[18]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[19]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[24]                  ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[5]                   ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[7]                   ;
+; -0.071 ; -0.071       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[8]                   ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[22]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[23]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[25]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[26]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[27]                  ;
+; -0.070 ; -0.070       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[6]                   ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[13]                  ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[14]                  ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[15]                  ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[16]                  ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[21]                  ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[29]                  ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[30]                  ;
+; -0.057 ; -0.057       ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|inclk[0] ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Times                                                                         ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 0.528 ; 0.803 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 2.407 ; 2.662 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 1.565 ; 1.348 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 1.071 ; 0.779 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                   ;
++--------------------+------------------+--------+--------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise   ; Fall   ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+--------+--------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 5.927  ; 6.222  ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 11.387 ; 11.437 ; Fall       ; sensor_delantero ;
++--------------------+------------------+--------+--------+------------+------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                         ;
++--------------------+------------------+-------+-------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+-------+-------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 5.852 ; 6.143 ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 5.852 ; 6.143 ; Fall       ; sensor_delantero ;
++--------------------+------------------+-------+-------+------------+------------------+
+
+
++---------------------------------------------------------------+
+; Propagation Delay                                             ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 7.877 ;    ;    ; 8.332 ;
++----------------+--------------------+-------+----+----+-------+
+
+
++---------------------------------------------------------------+
+; Minimum Propagation Delay                                     ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 7.713 ;    ;    ; 8.129 ;
++----------------+--------------------+-------+----+----+-------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary        ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; sensor_delantero ; -2.687 ; -82.354       ;
++------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary         ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; sensor_delantero ; -1.033 ; -31.061       ;
++------------------+--------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++------------------+--------+----------------------+
+; Clock            ; Slack  ; End Point TNS        ;
++------------------+--------+----------------------+
+; sensor_delantero ; -3.000 ; -40.333              ;
++------------------+--------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'sensor_delantero'                                                                                      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; -2.687 ; distancia_actual[28] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.540     ; 2.636      ;
+; -2.655 ; distancia_actual[28] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.614     ; 2.597      ;
+; -2.654 ; distancia_actual[28] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.597     ; 2.609      ;
+; -2.654 ; distancia_actual[28] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.598     ; 2.607      ;
+; -2.644 ; distancia_actual[28] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.593     ; 2.601      ;
+; -2.630 ; distancia_actual[28] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.594     ; 2.589      ;
+; -2.623 ; distancia_actual[28] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.594     ; 2.594      ;
+; -2.620 ; distancia_actual[28] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.541     ; 2.568      ;
+; -2.617 ; distancia_actual[25] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.476     ; 2.630      ;
+; -2.613 ; distancia_actual[28] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.602     ; 2.572      ;
+; -2.610 ; distancia_actual[28] ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.614     ; 2.559      ;
+; -2.607 ; distancia_actual[28] ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.602     ; 2.556      ;
+; -2.603 ; distancia_actual[28] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.602     ; 2.571      ;
+; -2.598 ; distancia_actual[28] ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.592     ; 2.652      ;
+; -2.595 ; distancia_actual[28] ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.614     ; 2.551      ;
+; -2.595 ; distancia_actual[28] ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.602     ; 2.543      ;
+; -2.593 ; distancia_actual[28] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.596     ; 2.649      ;
+; -2.591 ; distancia_actual[28] ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.604     ; 2.540      ;
+; -2.585 ; distancia_actual[25] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.550     ; 2.591      ;
+; -2.584 ; distancia_actual[25] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.533     ; 2.603      ;
+; -2.584 ; distancia_actual[25] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.534     ; 2.601      ;
+; -2.575 ; distancia_actual[2]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.466     ; 2.598      ;
+; -2.574 ; distancia_actual[25] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.529     ; 2.595      ;
+; -2.571 ; distancia_actual[1]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.463     ; 2.597      ;
+; -2.563 ; distancia_actual[28] ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.611     ; 2.501      ;
+; -2.560 ; distancia_actual[25] ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.530     ; 2.583      ;
+; -2.557 ; distancia_actual[28] ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.602     ; 2.503      ;
+; -2.557 ; distancia_actual[28] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.601     ; 2.601      ;
+; -2.553 ; distancia_actual[25] ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.530     ; 2.588      ;
+; -2.552 ; distancia_actual[8]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.477     ; 2.564      ;
+; -2.551 ; distancia_actual[28] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.593     ; 2.603      ;
+; -2.550 ; distancia_actual[25] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.477     ; 2.562      ;
+; -2.550 ; distancia_actual[7]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.476     ; 2.563      ;
+; -2.543 ; distancia_actual[2]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.540     ; 2.559      ;
+; -2.543 ; distancia_actual[25] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.538     ; 2.566      ;
+; -2.542 ; distancia_actual[2]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.523     ; 2.571      ;
+; -2.542 ; distancia_actual[2]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.524     ; 2.569      ;
+; -2.540 ; distancia_actual[28] ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.602     ; 2.508      ;
+; -2.540 ; distancia_actual[28] ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.601     ; 2.512      ;
+; -2.540 ; distancia_actual[25] ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.550     ; 2.553      ;
+; -2.539 ; distancia_actual[27] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.480     ; 2.548      ;
+; -2.539 ; distancia_actual[1]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.537     ; 2.558      ;
+; -2.538 ; distancia_actual[1]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.520     ; 2.570      ;
+; -2.538 ; distancia_actual[1]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.521     ; 2.568      ;
+; -2.537 ; distancia_actual[25] ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.538     ; 2.550      ;
+; -2.533 ; distancia_actual[25] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.538     ; 2.565      ;
+; -2.532 ; distancia_actual[28] ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.594     ; 2.583      ;
+; -2.532 ; distancia_actual[28] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.597     ; 2.580      ;
+; -2.532 ; distancia_actual[2]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.519     ; 2.563      ;
+; -2.528 ; distancia_actual[25] ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.528     ; 2.646      ;
+; -2.528 ; distancia_actual[1]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.516     ; 2.562      ;
+; -2.525 ; distancia_actual[25] ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.550     ; 2.545      ;
+; -2.525 ; distancia_actual[25] ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.538     ; 2.537      ;
+; -2.523 ; distancia_actual[25] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.532     ; 2.643      ;
+; -2.521 ; distancia_actual[25] ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.540     ; 2.534      ;
+; -2.520 ; distancia_actual[8]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.551     ; 2.525      ;
+; -2.519 ; distancia_actual[28] ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.605     ; 2.560      ;
+; -2.519 ; distancia_actual[8]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.534     ; 2.537      ;
+; -2.519 ; distancia_actual[8]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.535     ; 2.535      ;
+; -2.518 ; distancia_actual[16] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.486     ; 2.521      ;
+; -2.518 ; distancia_actual[2]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.520     ; 2.551      ;
+; -2.518 ; distancia_actual[7]  ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.550     ; 2.524      ;
+; -2.517 ; distancia_actual[7]  ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.533     ; 2.536      ;
+; -2.517 ; distancia_actual[7]  ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.534     ; 2.534      ;
+; -2.514 ; distancia_actual[1]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.517     ; 2.550      ;
+; -2.511 ; distancia_actual[2]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.520     ; 2.556      ;
+; -2.509 ; distancia_actual[8]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.530     ; 2.529      ;
+; -2.509 ; distancia_actual[14] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.484     ; 2.514      ;
+; -2.508 ; distancia_actual[28] ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.603     ; 2.551      ;
+; -2.508 ; distancia_actual[2]  ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.467     ; 2.530      ;
+; -2.507 ; distancia_actual[27] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.554     ; 2.509      ;
+; -2.507 ; distancia_actual[1]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.517     ; 2.555      ;
+; -2.507 ; distancia_actual[7]  ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.529     ; 2.528      ;
+; -2.506 ; distancia_actual[27] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.537     ; 2.521      ;
+; -2.506 ; distancia_actual[27] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.538     ; 2.519      ;
+; -2.504 ; distancia_actual[1]  ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.464     ; 2.529      ;
+; -2.502 ; distancia_actual[28] ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.604     ; 2.537      ;
+; -2.501 ; distancia_actual[2]  ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.528     ; 2.534      ;
+; -2.500 ; distancia_actual[3]  ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.466     ; 2.523      ;
+; -2.498 ; distancia_actual[2]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.540     ; 2.521      ;
+; -2.497 ; distancia_actual[1]  ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.525     ; 2.533      ;
+; -2.496 ; distancia_actual[28] ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.603     ; 2.538      ;
+; -2.496 ; distancia_actual[27] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.533     ; 2.513      ;
+; -2.495 ; distancia_actual[8]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.531     ; 2.517      ;
+; -2.495 ; distancia_actual[2]  ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.528     ; 2.518      ;
+; -2.494 ; distancia_actual[1]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.537     ; 2.520      ;
+; -2.493 ; distancia_actual[25] ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.547     ; 2.495      ;
+; -2.493 ; distancia_actual[7]  ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.530     ; 2.516      ;
+; -2.491 ; distancia_actual[2]  ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.528     ; 2.533      ;
+; -2.491 ; distancia_actual[1]  ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.525     ; 2.517      ;
+; -2.488 ; distancia_actual[8]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.531     ; 2.522      ;
+; -2.487 ; distancia_actual[25] ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.538     ; 2.497      ;
+; -2.487 ; distancia_actual[25] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.537     ; 2.595      ;
+; -2.487 ; distancia_actual[1]  ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.525     ; 2.532      ;
+; -2.486 ; distancia_actual[16] ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.560     ; 2.482      ;
+; -2.486 ; distancia_actual[2]  ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.518     ; 2.614      ;
+; -2.486 ; distancia_actual[7]  ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.530     ; 2.521      ;
+; -2.485 ; distancia_actual[16] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.543     ; 2.494      ;
+; -2.485 ; distancia_actual[16] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.544     ; 2.492      ;
+; -2.485 ; distancia_actual[8]  ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 1.000        ; -0.478     ; 2.496      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'sensor_delantero'                                                                                       ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+; -1.033 ; sensor_delantero     ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.475      ; 1.962      ;
+; -1.033 ; sensor_delantero     ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.476      ; 1.963      ;
+; -1.029 ; sensor_delantero     ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.476      ; 1.967      ;
+; -1.025 ; sensor_delantero     ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.475      ; 1.970      ;
+; -1.022 ; sensor_delantero     ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.472      ; 1.970      ;
+; -1.022 ; sensor_delantero     ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.538      ; 2.036      ;
+; -1.020 ; sensor_delantero     ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.465      ; 1.965      ;
+; -1.019 ; sensor_delantero     ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.465      ; 1.966      ;
+; -0.993 ; sensor_delantero     ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.473      ; 2.000      ;
+; -0.990 ; sensor_delantero     ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.473      ; 2.003      ;
+; -0.990 ; sensor_delantero     ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.473      ; 2.003      ;
+; -0.976 ; sensor_delantero     ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.475      ; 2.019      ;
+; -0.975 ; sensor_delantero     ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.473      ; 2.018      ;
+; -0.974 ; sensor_delantero     ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.475      ; 2.021      ;
+; -0.973 ; sensor_delantero     ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.479      ; 2.026      ;
+; -0.972 ; sensor_delantero     ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.476      ; 2.024      ;
+; -0.971 ; sensor_delantero     ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.462      ; 2.011      ;
+; -0.971 ; sensor_delantero     ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.472      ; 2.021      ;
+; -0.969 ; sensor_delantero     ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.475      ; 2.026      ;
+; -0.967 ; sensor_delantero     ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.462      ; 2.015      ;
+; -0.956 ; sensor_delantero     ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.475      ; 2.039      ;
+; -0.943 ; sensor_delantero     ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.482      ; 2.059      ;
+; -0.937 ; sensor_delantero     ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.482      ; 2.065      ;
+; -0.937 ; sensor_delantero     ; distancia_actual[17] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.475      ; 2.538      ;
+; -0.936 ; sensor_delantero     ; distancia_actual[18] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.476      ; 2.540      ;
+; -0.933 ; sensor_delantero     ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.483      ; 2.070      ;
+; -0.932 ; sensor_delantero     ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.476      ; 2.544      ;
+; -0.930 ; sensor_delantero     ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.484      ; 2.074      ;
+; -0.929 ; sensor_delantero     ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.484      ; 2.075      ;
+; -0.927 ; sensor_delantero     ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.479      ; 2.072      ;
+; -0.927 ; sensor_delantero     ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.478      ; 2.071      ;
+; -0.926 ; sensor_delantero     ; distancia_actual[5]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.475      ; 2.549      ;
+; -0.923 ; sensor_delantero     ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.472      ; 2.549      ;
+; -0.921 ; sensor_delantero     ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.539      ; 2.138      ;
+; -0.919 ; sensor_delantero     ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.465      ; 2.546      ;
+; -0.917 ; sensor_delantero     ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.465      ; 2.548      ;
+; -0.914 ; sensor_delantero     ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.462      ; 2.068      ;
+; -0.912 ; sensor_delantero     ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.485      ; 2.093      ;
+; -0.908 ; sensor_delantero     ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; -0.500       ; 3.480      ; 2.092      ;
+; -0.908 ; sensor_delantero     ; distancia_actual[12] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.473      ; 2.565      ;
+; -0.908 ; sensor_delantero     ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.538      ; 2.630      ;
+; -0.904 ; sensor_delantero     ; distancia_actual[20] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.473      ; 2.569      ;
+; -0.901 ; sensor_delantero     ; distancia_actual[9]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.473      ; 2.572      ;
+; -0.894 ; sensor_delantero     ; distancia_actual[10] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.473      ; 2.579      ;
+; -0.885 ; sensor_delantero     ; distancia_actual[11] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.472      ; 2.587      ;
+; -0.877 ; sensor_delantero     ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.475      ; 2.598      ;
+; -0.876 ; sensor_delantero     ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.475      ; 2.599      ;
+; -0.872 ; sensor_delantero     ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.479      ; 2.607      ;
+; -0.870 ; sensor_delantero     ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.475      ; 2.605      ;
+; -0.868 ; sensor_delantero     ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.462      ; 2.594      ;
+; -0.865 ; sensor_delantero     ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.476      ; 2.611      ;
+; -0.861 ; sensor_delantero     ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.462      ; 2.601      ;
+; -0.858 ; sensor_delantero     ; distancia_actual[15] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.482      ; 2.624      ;
+; -0.856 ; sensor_delantero     ; distancia_actual[19] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.475      ; 2.619      ;
+; -0.852 ; sensor_delantero     ; distancia_actual[13] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.482      ; 2.630      ;
+; -0.844 ; sensor_delantero     ; distancia_actual[14] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.483      ; 2.639      ;
+; -0.844 ; sensor_delantero     ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.539      ; 2.695      ;
+; -0.841 ; sensor_delantero     ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.484      ; 2.643      ;
+; -0.838 ; sensor_delantero     ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.484      ; 2.646      ;
+; -0.827 ; sensor_delantero     ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.478      ; 2.651      ;
+; -0.826 ; sensor_delantero     ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.480      ; 2.654      ;
+; -0.826 ; sensor_delantero     ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.479      ; 2.653      ;
+; -0.825 ; sensor_delantero     ; distancia_actual[16] ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.485      ; 2.660      ;
+; -0.804 ; sensor_delantero     ; distancia_actual[0]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 3.462      ; 2.658      ;
+; 0.786  ; distancia_actual[31] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.028      ; 0.814      ;
+; 0.846  ; distancia_actual[25] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 0.872      ;
+; 0.871  ; distancia_actual[27] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.896      ;
+; 0.872  ; distancia_actual[30] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 0.898      ;
+; 0.875  ; distancia_actual[4]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.900      ;
+; 0.877  ; distancia_actual[1]  ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.902      ;
+; 0.877  ; distancia_actual[28] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.028      ; 0.905      ;
+; 0.884  ; distancia_actual[22] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 0.910      ;
+; 0.898  ; distancia_actual[29] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 0.924      ;
+; 0.909  ; distancia_actual[26] ; distancia_actual[26] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.934      ;
+; 0.912  ; distancia_actual[2]  ; distancia_actual[2]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.937      ;
+; 0.918  ; distancia_actual[23] ; distancia_actual[23] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.943      ;
+; 0.927  ; distancia_actual[3]  ; distancia_actual[3]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.952      ;
+; 0.929  ; distancia_actual[24] ; distancia_actual[24] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 0.955      ;
+; 0.948  ; distancia_actual[8]  ; distancia_actual[8]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 0.973      ;
+; 0.966  ; distancia_actual[26] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.086      ; 1.052      ;
+; 0.973  ; distancia_actual[27] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.085      ; 1.058      ;
+; 0.974  ; distancia_actual[7]  ; distancia_actual[7]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 1.000      ;
+; 0.979  ; distancia_actual[30] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.080      ; 1.059      ;
+; 1.002  ; distancia_actual[6]  ; distancia_actual[6]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 1.027      ;
+; 1.004  ; distancia_actual[21] ; distancia_actual[21] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 1.029      ;
+; 1.004  ; distancia_actual[26] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.031      ; 1.035      ;
+; 1.010  ; distancia_actual[26] ; distancia_actual[27] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.026      ; 1.036      ;
+; 1.010  ; distancia_actual[28] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; -0.027     ; 0.983      ;
+; 1.011  ; distancia_actual[27] ; distancia_actual[30] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.030      ; 1.041      ;
+; 1.012  ; distancia_actual[2]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.022      ; 1.034      ;
+; 1.012  ; distancia_actual[21] ; distancia_actual[22] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.020      ; 1.032      ;
+; 1.015  ; distancia_actual[26] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.031      ; 1.046      ;
+; 1.016  ; distancia_actual[25] ; distancia_actual[28] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.090      ; 1.106      ;
+; 1.016  ; distancia_actual[26] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.085      ; 1.101      ;
+; 1.016  ; distancia_actual[3]  ; distancia_actual[4]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.022      ; 1.038      ;
+; 1.018  ; distancia_actual[0]  ; distancia_actual[1]  ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 1.043      ;
+; 1.021  ; distancia_actual[28] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; -0.027     ; 0.994      ;
+; 1.022  ; distancia_actual[24] ; distancia_actual[25] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.025      ; 1.047      ;
+; 1.022  ; distancia_actual[27] ; distancia_actual[29] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.030      ; 1.052      ;
+; 1.022  ; distancia_actual[28] ; distancia_actual[31] ; sensor_delantero ; sensor_delantero ; 0.000        ; 0.027      ; 1.049      ;
++--------+----------------------+----------------------+------------------+------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'sensor_delantero'                                                                      ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock            ; Clock Edge ; Target                                ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; sensor_delantero ; Rise       ; sensor_delantero                      ;
+; -0.566 ; -0.566       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[28]                  ;
+; -0.566 ; -0.566       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[31]                  ;
+; -0.564 ; -0.564       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[14]|datad            ;
+; -0.564 ; -0.564       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[16]|datad            ;
+; -0.564 ; -0.564       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[29]|datad            ;
+; -0.564 ; -0.564       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[30]|datad            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[13]|datad            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[15]|datad            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[21]|datad            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[22]|datad            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[25]|datad            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[28]|datac            ;
+; -0.563 ; -0.563       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[31]|datac            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[11]|datad            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[20]|datad            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[23]|datad            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[24]|datad            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[26]|datad            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[27]|datad            ;
+; -0.562 ; -0.562       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[9]|datad             ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[10]|datad            ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[12]|datad            ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[17]|datad            ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[18]|datad            ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[19]|datad            ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[5]|datad             ;
+; -0.561 ; -0.561       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[7]|datad             ;
+; -0.560 ; -0.560       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[6]|datad             ;
+; -0.560 ; -0.560       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[8]|datad             ;
+; -0.559 ; -0.559       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[0]|datad             ;
+; -0.559 ; -0.559       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[14]                  ;
+; -0.559 ; -0.559       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[16]                  ;
+; -0.559 ; -0.559       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[29]                  ;
+; -0.559 ; -0.559       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[2]|datad             ;
+; -0.559 ; -0.559       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[30]                  ;
+; -0.559 ; -0.559       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[4]|datad             ;
+; -0.558 ; -0.558       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[13]                  ;
+; -0.558 ; -0.558       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[15]                  ;
+; -0.558 ; -0.558       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]|datad             ;
+; -0.558 ; -0.558       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[21]                  ;
+; -0.558 ; -0.558       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[22]                  ;
+; -0.558 ; -0.558       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[25]                  ;
+; -0.558 ; -0.558       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[3]|datad             ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[11]                  ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[20]                  ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[23]                  ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[24]                  ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[26]                  ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[27]                  ;
+; -0.557 ; -0.557       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[9]                   ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[10]                  ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[12]                  ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[17]                  ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[18]                  ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[19]                  ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[5]                   ;
+; -0.556 ; -0.556       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[7]                   ;
+; -0.555 ; -0.555       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[6]                   ;
+; -0.555 ; -0.555       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[8]                   ;
+; -0.554 ; -0.554       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[0]                   ;
+; -0.554 ; -0.554       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[2]                   ;
+; -0.554 ; -0.554       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[4]                   ;
+; -0.553 ; -0.553       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[1]                   ;
+; -0.553 ; -0.553       ; 0.000          ; High Pulse Width ; sensor_delantero ; Fall       ; distancia_actual[3]                   ;
+; -0.524 ; -0.524       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|inclk[0] ;
+; -0.524 ; -0.524       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|outclk   ;
+; -0.477 ; -0.477       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0|combout         ;
+; -0.010 ; -0.010       ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0|datad           ;
+; 0.024  ; 0.024        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; estado_siguiente~3|datad              ;
+; 0.029  ; 0.029        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; estado_siguiente~3|combout            ;
+; 0.036  ; 0.036        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; distancia_actual[1]~0|datac           ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; sensor_delantero~input|o              ;
+; 0.493  ; 0.493        ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0|combout         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; sensor_delantero~input|i              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Rise       ; sensor_delantero~input|i              ;
+; 0.538  ; 0.538        ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|inclk[0] ;
+; 0.538  ; 0.538        ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]~0clkctrl|outclk   ;
+; 0.566  ; 0.566        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[1]                   ;
+; 0.567  ; 0.567        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[0]                   ;
+; 0.567  ; 0.567        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[2]                   ;
+; 0.567  ; 0.567        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[3]                   ;
+; 0.567  ; 0.567        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[4]                   ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[11]                  ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[17]                  ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[18]                  ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[19]                  ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[20]                  ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[5]                   ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[6]                   ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[7]                   ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[8]                   ;
+; 0.569  ; 0.569        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[9]                   ;
+; 0.570  ; 0.570        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[10]                  ;
+; 0.570  ; 0.570        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[12]                  ;
+; 0.570  ; 0.570        ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[1]|datad             ;
+; 0.570  ; 0.570        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[22]                  ;
+; 0.570  ; 0.570        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[24]                  ;
+; 0.570  ; 0.570        ; 0.000          ; Low Pulse Width  ; sensor_delantero ; Fall       ; distancia_actual[25]                  ;
+; 0.571  ; 0.571        ; 0.000          ; High Pulse Width ; sensor_delantero ; Rise       ; distancia_actual[0]|datad             ;
++--------+--------------+----------------+------------------+------------------+------------+---------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Setup Times                                                                          ;
++------------------+------------------+--------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise   ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+--------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; -0.095 ; 0.523 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 1.072  ; 1.794 ; Fall       ; sensor_delantero ;
++------------------+------------------+--------+-------+------------+------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 1.513 ; 0.937 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 1.056 ; 0.457 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                 ;
++--------------------+------------------+-------+-------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+-------+-------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 3.727 ; 4.362 ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 7.514 ; 7.758 ; Fall       ; sensor_delantero ;
++--------------------+------------------+-------+-------+------------+------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                         ;
++--------------------+------------------+-------+-------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+-------+-------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 3.679 ; 4.310 ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 3.679 ; 4.310 ; Fall       ; sensor_delantero ;
++--------------------+------------------+-------+-------+------------+------------------+
+
+
++---------------------------------------------------------------+
+; Propagation Delay                                             ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 5.059 ;    ;    ; 5.853 ;
++----------------+--------------------+-------+----+----+-------+
+
+
++---------------------------------------------------------------+
+; Minimum Propagation Delay                                     ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 4.950 ;    ;    ; 5.713 ;
++----------------+--------------------+-------+----+----+-------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                               ;
++-------------------+----------+---------+----------+---------+---------------------+
+; Clock             ; Setup    ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------+----------+---------+----------+---------+---------------------+
+; Worst-case Slack  ; -5.447   ; -1.551  ; N/A      ; N/A     ; -3.000              ;
+;  sensor_delantero ; -5.447   ; -1.551  ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS   ; -168.525 ; -45.15  ; 0.0      ; 0.0     ; -52.376             ;
+;  sensor_delantero ; -168.525 ; -45.150 ; N/A      ; N/A     ; -52.376             ;
++-------------------+----------+---------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Times                                                                         ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 0.554 ; 0.922 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 2.680 ; 3.088 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Hold Times                                                                          ;
++------------------+------------------+-------+-------+------------+------------------+
+; Data Port        ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++------------------+------------------+-------+-------+------------+------------------+
+; sensor_delantero ; sensor_delantero ; 1.844 ; 1.551 ; Fall       ; sensor_delantero ;
+; sensor_trasero   ; sensor_delantero ; 1.166 ; 0.782 ; Fall       ; sensor_delantero ;
++------------------+------------------+-------+-------+------------+------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                   ;
++--------------------+------------------+--------+--------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise   ; Fall   ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+--------+--------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 6.118  ; 6.471  ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 12.200 ; 12.341 ; Fall       ; sensor_delantero ;
++--------------------+------------------+--------+--------+------------+------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                         ;
++--------------------+------------------+-------+-------+------------+------------------+
+; Data Port          ; Clock Port       ; Rise  ; Fall  ; Clock Edge ; Clock Reference  ;
++--------------------+------------------+-------+-------+------------+------------------+
+; vehiculo_detectado ; sensor_delantero ; 3.679 ; 4.310 ; Rise       ; sensor_delantero ;
+; vehiculo_detectado ; sensor_delantero ; 3.679 ; 4.310 ; Fall       ; sensor_delantero ;
++--------------------+------------------+-------+-------+------------+------------------+
+
+
++---------------------------------------------------------------+
+; Propagation Delay                                             ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 8.402 ;    ;    ; 8.950 ;
++----------------+--------------------+-------+----+----+-------+
+
+
++---------------------------------------------------------------+
+; Minimum Propagation Delay                                     ;
++----------------+--------------------+-------+----+----+-------+
+; Input Port     ; Output Port        ; RR    ; RF ; FR ; FF    ;
++----------------+--------------------+-------+----+----+-------+
+; sensor_trasero ; vehiculo_detectado ; 4.950 ;    ;    ; 5.713 ;
++----------------+--------------------+-------+----+----+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                         ;
++--------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin                ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++--------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; vehiculo_detectado ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++--------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; sensor_delantero        ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; sensor_trasero          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; vehiculo_detectado ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.33 V              ; -0.00317 V          ; 0.162 V                              ; 0.063 V                              ; 3.54e-09 s                  ; 3.41e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.33 V             ; -0.00317 V         ; 0.162 V                             ; 0.063 V                             ; 3.54e-09 s                 ; 3.41e-09 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-07 V                   ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-07 V                  ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-07 V                   ; 2.35 V              ; -0.00444 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-10 s                  ; 9.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-07 V                  ; 2.35 V             ; -0.00444 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-10 s                 ; 9.82e-10 s                 ; Yes                       ; Yes                       ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; vehiculo_detectado ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.64 V              ; -0.0109 V           ; 0.244 V                              ; 0.16 V                               ; 2.42e-09 s                  ; 2.37e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.64 V             ; -0.0109 V          ; 0.244 V                             ; 0.16 V                              ; 2.42e-09 s                 ; 2.37e-09 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-10 s                   ; 3.01e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-10 s                  ; 3.01e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-08 V                   ; 2.7 V               ; -0.0212 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-08 V                  ; 2.7 V              ; -0.0212 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Setup Transfers                                                                 ;
++------------------+------------------+----------+----------+----------+----------+
+; From Clock       ; To Clock         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------+------------------+----------+----------+----------+----------+
+; sensor_delantero ; sensor_delantero ; 0        ; 0        ; 64       ; 1584     ;
++------------------+------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------+
+; Hold Transfers                                                                  ;
++------------------+------------------+----------+----------+----------+----------+
+; From Clock       ; To Clock         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------+------------------+----------+----------+----------+----------+
+; sensor_delantero ; sensor_delantero ; 0        ; 0        ; 64       ; 1584     ;
++------------------+------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 34    ; 34   ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 33    ; 33   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sun May 12 16:13:41 2024
+Info: Command: quartus_sta DetectorVehicular -c DetectorVehicular
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (21077): Core supply voltage is 1.2V
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 32 combinational loops as latches.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'DetectorVehicular.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name sensor_delantero sensor_delantero
+Warning (332125): Found combinational loop of 4 nodes
+    Warning (332126): Node "estado_siguiente~3|combout"
+    Warning (332126): Node "estado_siguiente~2|datab"
+    Warning (332126): Node "estado_siguiente~2|combout"
+    Warning (332126): Node "estado_siguiente~3|dataa"
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -5.447
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.447            -168.525 sensor_delantero 
+Info (332146): Worst-case hold slack is -1.551
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.551             -45.150 sensor_delantero 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -52.376 sensor_delantero 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.891
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.891            -148.014 sensor_delantero 
+Info (332146): Worst-case hold slack is -1.348
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.348             -39.979 sensor_delantero 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -41.390 sensor_delantero 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.687
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.687             -82.354 sensor_delantero 
+Info (332146): Worst-case hold slack is -1.033
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.033             -31.061 sensor_delantero 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -40.333 sensor_delantero 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4656 megabytes
+    Info: Processing ended: Sun May 12 16:13:43 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

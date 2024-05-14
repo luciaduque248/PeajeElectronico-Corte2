@@ -1,0 +1,26 @@
+|ControlTalanquera_Semaforo
+clk => semaforo_salida~reg0.CLK
+clk => semaforo_entrada~reg0.CLK
+clk => barrera_salida~reg0.CLK
+clk => barrera_entrada~reg0.CLK
+clk => estado_siguiente~1.DATAIN
+clk => estado_actual~1.DATAIN
+rst => estado_siguiente.emergencia.OUTPUTSELECT
+rst => estado_siguiente.congestion_salida.OUTPUTSELECT
+rst => estado_siguiente.congestion_entrada.OUTPUTSELECT
+rst => estado_siguiente.estado_normal.OUTPUTSELECT
+rst => estado_actual~3.DATAIN
+rst => semaforo_salida~reg0.ENA
+rst => barrera_entrada~reg0.ENA
+rst => barrera_salida~reg0.ENA
+rst => semaforo_entrada~reg0.ENA
+estado_sistema[0] => ~NO_FANOUT~
+estado_sistema[1] => ~NO_FANOUT~
+trafico[0] => ~NO_FANOUT~
+trafico[1] => ~NO_FANOUT~
+barrera_entrada << barrera_entrada~reg0.DB_MAX_OUTPUT_PORT_TYPE
+barrera_salida << barrera_salida~reg0.DB_MAX_OUTPUT_PORT_TYPE
+semaforo_entrada << semaforo_entrada~reg0.DB_MAX_OUTPUT_PORT_TYPE
+semaforo_salida << semaforo_salida~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

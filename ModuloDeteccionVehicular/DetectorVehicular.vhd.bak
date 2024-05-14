@@ -1,0 +1,18 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity DeteccionVehiculos is
+    port (
+        -- Sensores delanteros y traseros para la detección de vehículos
+        sensor_delantero: in std_logic;
+        sensor_trasero: in std_logic;
+        -- Salida para indicar la detección de un vehículo
+        vehiculo_detectado: out std_logic
+    );
+end entity DeteccionVehiculos;
+
+architecture Behavioral of DeteccionVehiculos is
+begin
+    -- El vehículo se considera detectado si se activa al menos uno de los sensores
+    vehiculo_detectado <= sensor_delantero or sensor_trasero;
+end architecture Behavioral;

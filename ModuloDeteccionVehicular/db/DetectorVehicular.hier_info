@@ -1,0 +1,6 @@
+|DetectorVehicular
+sensor_delantero => proceso_deteccion.IN0
+sensor_trasero => proceso_deteccion.IN1
+vehiculo_detectado <= vehiculo_detectado.DB_MAX_OUTPUT_PORT_TYPE
+
+

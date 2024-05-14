@@ -1,0 +1,845 @@
+Analysis & Synthesis report for PeajeElectronico
+Tue May 14 17:50:20 2024
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |PeajeElectronico|estado_actual
+  9. State Machine - |PeajeElectronico|MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual
+ 10. State Machine - |PeajeElectronico|MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente
+ 11. State Machine - |PeajeElectronico|ControlTalanquera:inst_ControlTalanquera|estado_actual
+ 12. State Machine - |PeajeElectronico|ControlTalanquera:inst_ControlTalanquera|estado_siguiente
+ 13. User-Specified and Inferred Latches
+ 14. Logic Cells Representing Combinational Loops
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Port Connectivity Checks: "RFID_RC522:inst_RFID_RC522"
+ 20. Port Connectivity Checks: "ControladorLCDRoHS:inst_ControladorLCD"
+ 21. Port Connectivity Checks: "MaquinaTiempoPaso:inst_MaquinaTiempoPaso"
+ 22. Port Connectivity Checks: "ControlTalanquera:inst_ControlTalanquera"
+ 23. Port Connectivity Checks: "IdValidacion:inst_IdValidacion"
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 14 17:50:20 2024      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; PeajeElectronico                           ;
+; Top-level Entity Name              ; PeajeElectronico                           ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 149                                        ;
+;     Total combinational functions  ; 146                                        ;
+;     Dedicated logic registers      ; 27                                         ;
+; Total registers                    ; 27                                         ;
+; Total pins                         ; 62                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; PeajeElectronico   ; PeajeElectronico   ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++---------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                      ; Library ;
++---------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
+; ../ModuloRFID_RC522/RFID_RC522.vhd                ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/ModuloRFID_RC522/RFID_RC522.vhd                ;         ;
+; ../PantallaLcd/PantallaLcd.vhd                    ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/PantallaLcd/PantallaLcd.vhd                    ;         ;
+; ../ControladorLCDRoHS/ControladorLCDRoHS.vhd      ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/ControladorLCDRoHS/ControladorLCDRoHS.vhd      ;         ;
+; ../ModuloIdValidacion/IdValidacion.vhd            ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/ModuloIdValidacion/IdValidacion.vhd            ;         ;
+; ../ModuloDeteccionVehicular/DetectorVehicular.vhd ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/ModuloDeteccionVehicular/DetectorVehicular.vhd ;         ;
+; ../ModulodeRegistro/RegistroyContador.vhd         ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/ModulodeRegistro/RegistroyContador.vhd         ;         ;
+; ../MaquinaTiempoPaso/MaquinaTiempoPaso.vhd        ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/MaquinaTiempoPaso/MaquinaTiempoPaso.vhd        ;         ;
+; ../MaquinaControlTalanquera/ControlTalanquera.vhd ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/MaquinaControlTalanquera/ControlTalanquera.vhd ;         ;
+; PeajeElectronico.vhd                              ; yes             ; User VHDL File  ; C:/Users/DELL/Documents/VHDL/PEAJE_MAQUINA_ESTADOS/PeajeElectronico/PeajeElectronico.vhd          ;         ;
++---------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                               ;
++---------------------------------------------+-------------------------------------------------------------+
+; Resource                                    ; Usage                                                       ;
++---------------------------------------------+-------------------------------------------------------------+
+; Estimated Total logic elements              ; 149                                                         ;
+;                                             ;                                                             ;
+; Total combinational functions               ; 146                                                         ;
+; Logic element usage by number of LUT inputs ;                                                             ;
+;     -- 4 input functions                    ; 47                                                          ;
+;     -- 3 input functions                    ; 37                                                          ;
+;     -- <=2 input functions                  ; 62                                                          ;
+;                                             ;                                                             ;
+; Logic elements by mode                      ;                                                             ;
+;     -- normal mode                          ; 100                                                         ;
+;     -- arithmetic mode                      ; 46                                                          ;
+;                                             ;                                                             ;
+; Total registers                             ; 27                                                          ;
+;     -- Dedicated logic registers            ; 27                                                          ;
+;     -- I/O registers                        ; 0                                                           ;
+;                                             ;                                                             ;
+; I/O pins                                    ; 62                                                          ;
+; Embedded Multiplier 9-bit elements          ; 0                                                           ;
+; Maximum fan-out node                        ; DetectorVehicular:inst_DetectorVehicular|estado_siguiente~0 ;
+; Maximum fan-out                             ; 35                                                          ;
+; Total fan-out                               ; 592                                                         ;
+; Average fan-out                             ; 1.99                                                        ;
++---------------------------------------------+-------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                              ;
++-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                   ; Library Name ;
++-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------+--------------+
+; |PeajeElectronico                             ; 146 (2)           ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 62   ; 0            ; |PeajeElectronico                                                                     ; work         ;
+;    |ControladorLCDRoHS:inst_ControladorLCD|   ; 35 (0)            ; 23 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PeajeElectronico|ControladorLCDRoHS:inst_ControladorLCD                              ; work         ;
+;       |PantallaLcd:inst_PantallaLcd|          ; 35 (35)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PeajeElectronico|ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd ; work         ;
+;    |DetectorVehicular:inst_DetectorVehicular| ; 109 (109)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PeajeElectronico|DetectorVehicular:inst_DetectorVehicular                            ; work         ;
++-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------+
+; State Machine - |PeajeElectronico|estado_actual                                                       ;
++-------------------------+-------------------------+-------------------------+-------------------------+
+; Name                    ; estado_actual.validando ; estado_actual.detectado ; estado_actual.esperando ;
++-------------------------+-------------------------+-------------------------+-------------------------+
+; estado_actual.esperando ; 0                       ; 0                       ; 0                       ;
+; estado_actual.detectado ; 0                       ; 1                       ; 1                       ;
+; estado_actual.validando ; 1                       ; 0                       ; 1                       ;
++-------------------------+-------------------------+-------------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |PeajeElectronico|MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual                                                                           ;
++----------------------------------+----------------------------+------------------------------+----------------------------------+----------------------------------+
+; Name                             ; estado_actual.paso_exitoso ; estado_actual.esperando_paso ; estado_actual.vehiculo_detectado ; estado_actual.esperando_vehiculo ;
++----------------------------------+----------------------------+------------------------------+----------------------------------+----------------------------------+
+; estado_actual.esperando_vehiculo ; 0                          ; 0                            ; 0                                ; 0                                ;
+; estado_actual.vehiculo_detectado ; 0                          ; 0                            ; 1                                ; 1                                ;
+; estado_actual.esperando_paso     ; 0                          ; 1                            ; 0                                ; 1                                ;
+; estado_actual.paso_exitoso       ; 1                          ; 0                            ; 0                                ; 1                                ;
++----------------------------------+----------------------------+------------------------------+----------------------------------+----------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |PeajeElectronico|MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente                                                                                       ;
++-------------------------------------+-------------------------------+---------------------------------+-------------------------------------+-------------------------------------+
+; Name                                ; estado_siguiente.paso_exitoso ; estado_siguiente.esperando_paso ; estado_siguiente.vehiculo_detectado ; estado_siguiente.esperando_vehiculo ;
++-------------------------------------+-------------------------------+---------------------------------+-------------------------------------+-------------------------------------+
+; estado_siguiente.esperando_vehiculo ; 0                             ; 0                               ; 0                                   ; 0                                   ;
+; estado_siguiente.vehiculo_detectado ; 0                             ; 0                               ; 1                                   ; 1                                   ;
+; estado_siguiente.esperando_paso     ; 0                             ; 1                               ; 0                                   ; 1                                   ;
+; estado_siguiente.paso_exitoso       ; 1                             ; 0                               ; 0                                   ; 1                                   ;
++-------------------------------------+-------------------------------+---------------------------------+-------------------------------------+-------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |PeajeElectronico|ControlTalanquera:inst_ControlTalanquera|estado_actual                                                                                                                                                                                                                     ;
++----------------------------------------+--------------------------------+---------------------------------------+----------------------------------------+------------------------------+----------------------------------------+----------------------------------------+----------------------------------+
+; Name                                   ; estado_actual.esperando_salida ; estado_actual.abriendo_barrera_salida ; estado_actual.cerrando_barrera_entrada ; estado_actual.esperando_paso ; estado_actual.abriendo_barrera_entrada ; estado_actual.validando_identificacion ; estado_actual.esperando_vehiculo ;
++----------------------------------------+--------------------------------+---------------------------------------+----------------------------------------+------------------------------+----------------------------------------+----------------------------------------+----------------------------------+
+; estado_actual.esperando_vehiculo       ; 0                              ; 0                                     ; 0                                      ; 0                            ; 0                                      ; 0                                      ; 0                                ;
+; estado_actual.validando_identificacion ; 0                              ; 0                                     ; 0                                      ; 0                            ; 0                                      ; 1                                      ; 1                                ;
+; estado_actual.abriendo_barrera_entrada ; 0                              ; 0                                     ; 0                                      ; 0                            ; 1                                      ; 0                                      ; 1                                ;
+; estado_actual.esperando_paso           ; 0                              ; 0                                     ; 0                                      ; 1                            ; 0                                      ; 0                                      ; 1                                ;
+; estado_actual.cerrando_barrera_entrada ; 0                              ; 0                                     ; 1                                      ; 0                            ; 0                                      ; 0                                      ; 1                                ;
+; estado_actual.abriendo_barrera_salida  ; 0                              ; 1                                     ; 0                                      ; 0                            ; 0                                      ; 0                                      ; 1                                ;
+; estado_actual.esperando_salida         ; 1                              ; 0                                     ; 0                                      ; 0                            ; 0                                      ; 0                                      ; 1                                ;
++----------------------------------------+--------------------------------+---------------------------------------+----------------------------------------+------------------------------+----------------------------------------+----------------------------------------+----------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |PeajeElectronico|ControlTalanquera:inst_ControlTalanquera|estado_siguiente                                                                                                                                                                                                                                          ;
++-------------------------------------------+-----------------------------------+------------------------------------------+-------------------------------------------+---------------------------------+-------------------------------------------+-------------------------------------------+-------------------------------------+
+; Name                                      ; estado_siguiente.esperando_salida ; estado_siguiente.abriendo_barrera_salida ; estado_siguiente.cerrando_barrera_entrada ; estado_siguiente.esperando_paso ; estado_siguiente.abriendo_barrera_entrada ; estado_siguiente.validando_identificacion ; estado_siguiente.esperando_vehiculo ;
++-------------------------------------------+-----------------------------------+------------------------------------------+-------------------------------------------+---------------------------------+-------------------------------------------+-------------------------------------------+-------------------------------------+
+; estado_siguiente.esperando_vehiculo       ; 0                                 ; 0                                        ; 0                                         ; 0                               ; 0                                         ; 0                                         ; 0                                   ;
+; estado_siguiente.validando_identificacion ; 0                                 ; 0                                        ; 0                                         ; 0                               ; 0                                         ; 1                                         ; 1                                   ;
+; estado_siguiente.abriendo_barrera_entrada ; 0                                 ; 0                                        ; 0                                         ; 0                               ; 1                                         ; 0                                         ; 1                                   ;
+; estado_siguiente.esperando_paso           ; 0                                 ; 0                                        ; 0                                         ; 1                               ; 0                                         ; 0                                         ; 1                                   ;
+; estado_siguiente.cerrando_barrera_entrada ; 0                                 ; 0                                        ; 1                                         ; 0                               ; 0                                         ; 0                                         ; 1                                   ;
+; estado_siguiente.abriendo_barrera_salida  ; 0                                 ; 1                                        ; 0                                         ; 0                               ; 0                                         ; 0                                         ; 1                                   ;
+; estado_siguiente.esperando_salida         ; 1                                 ; 0                                        ; 0                                         ; 0                               ; 0                                         ; 0                                         ; 1                                   ;
++-------------------------------------------+-----------------------------------+------------------------------------------+-------------------------------------------+---------------------------------+-------------------------------------------+-------------------------------------------+-------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                   ;
++---------------------------------------------------------------+--------------------------------------------------------------+------------------------+
+; Latch Name                                                    ; Latch Enable Signal                                          ; Free of Timing Hazards ;
++---------------------------------------------------------------+--------------------------------------------------------------+------------------------+
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[31] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[4]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[5]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[6]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[7]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[8]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[9]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[10] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[11] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[12] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[13] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[14] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[15] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[16] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[17] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[18] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[19] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[20] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[21] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[22] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[23] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[24] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[25] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[26] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[27] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[28] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[29] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[30] ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[3]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[2]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; DetectorVehicular:inst_DetectorVehicular|distancia_actual[0]  ; DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] ; yes                    ;
+; Number of user-specified and inferred latches = 32            ;                                                              ;                        ;
++---------------------------------------------------------------+--------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                    ;
++-------------------------------------------------------------+---+
+; Logic Cell Name                                             ;   ;
++-------------------------------------------------------------+---+
+; DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado ;   ;
+; Number of logic cells representing combinational loops      ; 1 ;
++-------------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                      ;
++---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+; Register name                                                                         ; Reason for Removal                                                                              ;
++---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+; display_output[6]~reg0                                                                ; Stuck at GND due to stuck port data_in                                                          ;
+; display_output[5]~reg0                                                                ; Stuck at GND due to stuck port data_in                                                          ;
+; display_output[4]~reg0                                                                ; Stuck at GND due to stuck port data_in                                                          ;
+; display_output[3]~reg0                                                                ; Stuck at GND due to stuck port data_in                                                          ;
+; RFID_RC522:inst_RFID_RC522|estado_siguiente[2]                                        ; Stuck at GND due to stuck port data_in                                                          ;
+; RFID_RC522:inst_RFID_RC522|estado_actual[2]                                           ; Stuck at GND due to stuck port data_in                                                          ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[0]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[0]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[1]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[1]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[2]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[2]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[3]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[3]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[4]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[4]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[5]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[5]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[6]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[6]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[7]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[7]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[8]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[8]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[9]                  ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[9]    ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[10]                 ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[10]   ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[11]                 ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[11]   ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[12]                 ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[12]   ;
+; RegistroyContador:inst_RegistroyContador|contador_total_vehiculos[13]                 ; Merged with RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[13]   ;
+; ControladorLCDRoHS:inst_ControladorLCD|estado_actual[1,2]                             ; Merged with ControladorLCDRoHS:inst_ControladorLCD|estado_actual[0]                             ;
+; ControladorLCDRoHS:inst_ControladorLCD|estado_siguiente[1,2]                          ; Merged with ControladorLCDRoHS:inst_ControladorLCD|estado_siguiente[0]                          ;
+; RFID_RC522:inst_RFID_RC522|id_temporal[1..31]                                         ; Merged with RFID_RC522:inst_RFID_RC522|id_temporal[0]                                           ;
+; RFID_RC522:inst_RFID_RC522|datos_recibidos[1..31]                                     ; Merged with RFID_RC522:inst_RFID_RC522|datos_recibidos[0]                                       ;
+; ControladorLCDRoHS:inst_ControladorLCD|estado_actual[0]                               ; Stuck at GND due to stuck port data_in                                                          ;
+; ControladorLCDRoHS:inst_ControladorLCD|estado_siguiente[0]                            ; Stuck at GND due to stuck port data_in                                                          ;
+; IdValidacion:inst_IdValidacion|identificacion_valida                                  ; Stuck at GND due to stuck port data_in                                                          ;
+; RegistroyContador:inst_RegistroyContador|estado_siguiente                             ; Stuck at GND due to stuck port data_in                                                          ;
+; RegistroyContador:inst_RegistroyContador|estado_actual                                ; Stuck at GND due to stuck port data_in                                                          ;
+; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[0..13]  ; Stuck at GND due to stuck port clock_enable                                                     ;
+; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[0..7]                                 ; Stuck at GND due to stuck port data_in                                                          ;
+; ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[6,7] ; Stuck at GND due to stuck port data_in                                                          ;
+; ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[4]   ; Merged with ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[5] ;
+; ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[0,1] ; Merged with ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[2] ;
+; RFID_RC522:inst_RFID_RC522|estado_actual[0,1]                                         ; Lost fanout                                                                                     ;
+; RFID_RC522:inst_RFID_RC522|id_temporal[0]                                             ; Lost fanout                                                                                     ;
+; RFID_RC522:inst_RFID_RC522|id_leida                                                   ; Lost fanout                                                                                     ;
+; RFID_RC522:inst_RFID_RC522|datos_recibidos[0]                                         ; Lost fanout                                                                                     ;
+; RFID_RC522:inst_RFID_RC522|estado_siguiente[0,1]                                      ; Lost fanout                                                                                     ;
+; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[0..19]                       ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.esperando_paso                 ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.esperando_paso              ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.cerrando_barrera_entrada    ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.cerrando_barrera_entrada       ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.abriendo_barrera_salida     ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.abriendo_barrera_salida        ; Stuck at GND due to stuck port data_in                                                          ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|contador_tiempo[0..25]                       ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.esperando_vehiculo             ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.vehiculo_detectado             ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.esperando_paso                 ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.paso_exitoso                   ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.esperando_vehiculo          ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.vehiculo_detectado          ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.esperando_paso              ; Lost fanout                                                                                     ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.paso_exitoso                ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.esperando_salida            ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.esperando_salida               ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|semaforo_salida_verde                        ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|semaforo_salida_rojo                         ; Stuck at VCC due to stuck port data_in                                                          ;
+; estado_actual.validando                                                               ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.abriendo_barrera_entrada    ; Stuck at GND due to stuck port data_in                                                          ;
+; display_output[2]~reg0                                                                ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.abriendo_barrera_entrada       ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|talanquera_entrada                           ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|semaforo_entrada_verde                       ; Stuck at GND due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|semaforo_entrada_rojo                        ; Stuck at VCC due to stuck port data_in                                                          ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.validando_identificacion       ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.validando_identificacion    ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.esperando_vehiculo             ; Lost fanout                                                                                     ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.esperando_vehiculo          ; Lost fanout                                                                                     ;
+; Total Number of Removed Registers = 200                                               ;                                                                                                 ;
++---------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                           ;
++------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
+; Register name                                                                      ; Reason for Removal        ; Registers Removed due to This Register                                               ;
++------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
+; RegistroyContador:inst_RegistroyContador|estado_siguiente                          ; Stuck at GND              ; RegistroyContador:inst_RegistroyContador|estado_actual,                              ;
+;                                                                                    ; due to stuck port data_in ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[13],   ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[12],   ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[11],   ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[10],   ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[9],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[8],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[7],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[6],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[5],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[4],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[3],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[2],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[1],    ;
+;                                                                                    ;                           ; RegistroyContador:inst_RegistroyContador|contador_tiempo_paso_ultimo_vehiculo[0],    ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[19],                        ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[18],                        ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[17],                        ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[16],                        ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[15],                        ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|contador_refresco[14]                         ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.cerrando_barrera_entrada ; Stuck at GND              ; ControlTalanquera:inst_ControlTalanquera|estado_actual.cerrando_barrera_entrada,     ;
+;                                                                                    ; due to stuck port data_in ; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.abriendo_barrera_salida,   ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_actual.abriendo_barrera_salida,      ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.esperando_salida,          ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_actual.esperando_salida,             ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|semaforo_salida_verde,                      ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|semaforo_salida_rojo,                       ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|talanquera_entrada,                         ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_actual.validando_identificacion,     ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.validando_identificacion,  ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_actual.esperando_vehiculo,           ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.esperando_vehiculo         ;
+; ControladorLCDRoHS:inst_ControladorLCD|estado_actual[0]                            ; Stuck at GND              ; ControladorLCDRoHS:inst_ControladorLCD|estado_siguiente[0],                          ;
+;                                                                                    ; due to stuck port data_in ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[7],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[6],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[5],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[4],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[3],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[2],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[1],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|dato_lcd[0],                                  ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[7], ;
+;                                                                                    ;                           ; ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[6]  ;
+; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|contador_tiempo[25]                       ; Lost Fanouts              ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|contador_tiempo[24],                        ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|contador_tiempo[23],                        ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|contador_tiempo[22],                        ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.esperando_vehiculo,           ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.vehiculo_detectado,           ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.esperando_paso,               ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_actual.paso_exitoso,                 ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.esperando_vehiculo,        ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.vehiculo_detectado,        ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.esperando_paso,            ;
+;                                                                                    ;                           ; MaquinaTiempoPaso:inst_MaquinaTiempoPaso|estado_siguiente.paso_exitoso               ;
+; RFID_RC522:inst_RFID_RC522|estado_siguiente[2]                                     ; Stuck at GND              ; RFID_RC522:inst_RFID_RC522|estado_actual[2],                                         ;
+;                                                                                    ; due to stuck port data_in ; RFID_RC522:inst_RFID_RC522|estado_actual[1],                                         ;
+;                                                                                    ;                           ; RFID_RC522:inst_RFID_RC522|estado_actual[0],                                         ;
+;                                                                                    ;                           ; RFID_RC522:inst_RFID_RC522|estado_siguiente[1],                                      ;
+;                                                                                    ;                           ; RFID_RC522:inst_RFID_RC522|estado_siguiente[0]                                       ;
+; IdValidacion:inst_IdValidacion|identificacion_valida                               ; Stuck at GND              ; display_output[2]~reg0,                                                              ;
+;                                                                                    ; due to stuck port data_in ; ControlTalanquera:inst_ControlTalanquera|semaforo_entrada_verde,                     ;
+;                                                                                    ;                           ; ControlTalanquera:inst_ControlTalanquera|semaforo_entrada_rojo                       ;
+; RFID_RC522:inst_RFID_RC522|id_temporal[0]                                          ; Lost Fanouts              ; RFID_RC522:inst_RFID_RC522|datos_recibidos[0]                                        ;
+; ControlTalanquera:inst_ControlTalanquera|estado_actual.esperando_paso              ; Lost Fanouts              ; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.esperando_paso             ;
+; ControlTalanquera:inst_ControlTalanquera|estado_siguiente.abriendo_barrera_entrada ; Stuck at GND              ; ControlTalanquera:inst_ControlTalanquera|estado_actual.abriendo_barrera_entrada      ;
+;                                                                                    ; due to stuck port data_in ;                                                                                      ;
++------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 27    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 25    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 22    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |PeajeElectronico|ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|lcd_data_int[3] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |PeajeElectronico|ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|contador[6]     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |PeajeElectronico|ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd|estado[1]       ;
+; 5:1                ; 26 bits   ; 78 LEs        ; 26 LEs               ; 52 LEs                 ; Yes        ; |PeajeElectronico|MaquinaTiempoPaso:inst_MaquinaTiempoPaso|contador_tiempo[21]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |PeajeElectronico|DetectorVehicular:inst_DetectorVehicular|distancia_actual[16]                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RFID_RC522:inst_RFID_RC522"                                                                                                                      ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                      ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; sda      ; Bidir  ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; sck      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; mosi     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; datos_in ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "ControladorLCDRoHS:inst_ControladorLCD" ;
++----------------+-------+----------+--------------------------------+
+; Port           ; Type  ; Severity ; Details                        ;
++----------------+-------+----------+--------------------------------+
+; estado_sistema ; Input ; Info     ; Stuck at GND                   ;
++----------------+-------+----------+--------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MaquinaTiempoPaso:inst_MaquinaTiempoPaso"                                                         ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; talanquera_abierta ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ControlTalanquera:inst_ControlTalanquera"                                                                             ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                  ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; led_entrada_verde ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; led_entrada_rojo  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; led_salida_verde  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; led_salida_rojo   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IdValidacion:inst_IdValidacion"                                                                   ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; categoria_vehiculo ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue May 14 17:50:17 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PeajeElectronico -c PeajeElectronico
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/modulorfid_rc522/rfid_rc522.vhd
+    Info (12022): Found design unit 1: RFID_RC522-RFID_RC522_arch
+    Info (12023): Found entity 1: RFID_RC522
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/pantallalcd/pantallalcd.vhd
+    Info (12022): Found design unit 1: PantallaLcd-PantallaLcd_arch
+    Info (12023): Found entity 1: PantallaLcd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/controladorlcdrohs/controladorlcdrohs.vhd
+    Info (12022): Found design unit 1: ControladorLCDRoHS-ControladorLCDRoHS_arch
+    Info (12023): Found entity 1: ControladorLCDRoHS
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/moduloidvalidacion/idvalidacion.vhd
+    Info (12022): Found design unit 1: IdValidacion-IdValidacion_arch
+    Info (12023): Found entity 1: IdValidacion
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/modulodeteccionvehicular/detectorvehicular.vhd
+    Info (12022): Found design unit 1: DetectorVehicular-DetectorVehicular_arch
+    Info (12023): Found entity 1: DetectorVehicular
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/moduloderegistro/registroycontador.vhd
+    Info (12022): Found design unit 1: RegistroyContador-RegistroyContador_arch
+    Info (12023): Found entity 1: RegistroyContador
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/modulocontroltalanqueraysemaforo/controltalanquera_semaforo.vhd
+    Info (12022): Found design unit 1: ControlTalanquera_Semaforo-ControlTalanquera_Semaforo_arch
+    Info (12023): Found entity 1: ControlTalanquera_Semaforo
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/maquinavalidacion/maquinavalidacion.vhd
+    Info (12022): Found design unit 1: MaquinaValidacion-MaquinaValidacion_arch
+    Info (12023): Found entity 1: MaquinaValidacion
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/maquinatiempopaso/maquinatiempopaso.vhd
+    Info (12022): Found design unit 1: MaquinaTiempoPaso-MaquinaTiempoPaso_arch
+    Info (12023): Found entity 1: MaquinaTiempoPaso
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/maquinaestados/maquinaestados.vhd
+    Info (12022): Found design unit 1: MaquinaEstados-MaquinaEstados_arch
+    Info (12023): Found entity 1: MaquinaEstados
+Info (12021): Found 2 design units, including 1 entities, in source file /users/dell/documents/vhdl/peaje_maquina_estados/maquinacontroltalanquera/controltalanquera.vhd
+    Info (12022): Found design unit 1: ControlTalanquera-ControlTalanquera_arch
+    Info (12023): Found entity 1: ControlTalanquera
+Info (12021): Found 2 design units, including 1 entities, in source file peajeelectronico.vhd
+    Info (12022): Found design unit 1: PeajeElectronico-PeajeElectronico_arch
+    Info (12023): Found entity 1: PeajeElectronico
+Info (12127): Elaborating entity "PeajeElectronico" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at PeajeElectronico.vhd(32): used implicit default value for signal "categoria_vehiculo" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at PeajeElectronico.vhd(39): object "categoria_vehiculo_int" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at PeajeElectronico.vhd(40): used implicit default value for signal "vehiculo_ingresado" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at PeajeElectronico.vhd(41): used implicit default value for signal "tiempo_pasado" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at PeajeElectronico.vhd(42): object "talanquera_abierta" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at PeajeElectronico.vhd(44): used implicit default value for signal "vehiculo_pasado" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at PeajeElectronico.vhd(141): object "rfid_sck" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at PeajeElectronico.vhd(142): object "rfid_mosi" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at PeajeElectronico.vhd(143): used implicit default value for signal "rfid_miso" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at PeajeElectronico.vhd(144): used implicit default value for signal "rfid_irq" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "DetectorVehicular" for hierarchy "DetectorVehicular:inst_DetectorVehicular"
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(28): signal "estado_actual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(39): signal "distancia_actual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(40): signal "distancia_actual" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DetectorVehicular.vhd(52): signal "estado_siguiente" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at DetectorVehicular.vhd(25): inferring latch(es) for signal or variable "distancia_actual", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "distancia_actual[0]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[1]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[2]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[3]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[4]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[5]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[6]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[7]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[8]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[9]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[10]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[11]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[12]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[13]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[14]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[15]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[16]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[17]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[18]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[19]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[20]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[21]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[22]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[23]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[24]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[25]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[26]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[27]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[28]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[29]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[30]" at DetectorVehicular.vhd(25)
+Info (10041): Inferred latch for "distancia_actual[31]" at DetectorVehicular.vhd(25)
+Info (12128): Elaborating entity "IdValidacion" for hierarchy "IdValidacion:inst_IdValidacion"
+Info (12128): Elaborating entity "ControlTalanquera" for hierarchy "ControlTalanquera:inst_ControlTalanquera"
+Warning (10541): VHDL Signal Declaration warning at ControlTalanquera.vhd(14): used implicit default value for signal "talanquera_salida" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "MaquinaTiempoPaso" for hierarchy "MaquinaTiempoPaso:inst_MaquinaTiempoPaso"
+Info (12128): Elaborating entity "RegistroyContador" for hierarchy "RegistroyContador:inst_RegistroyContador"
+Info (12128): Elaborating entity "ControladorLCDRoHS" for hierarchy "ControladorLCDRoHS:inst_ControladorLCD"
+Info (12128): Elaborating entity "PantallaLcd" for hierarchy "ControladorLCDRoHS:inst_ControladorLCD|PantallaLcd:inst_PantallaLcd"
+Warning (10631): VHDL Process Statement warning at PantallaLcd.vhd(33): inferring latch(es) for signal or variable "lcd_rw_int", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "lcd_rw_int" at PantallaLcd.vhd(33)
+Info (12128): Elaborating entity "RFID_RC522" for hierarchy "RFID_RC522:inst_RFID_RC522"
+Warning (10541): VHDL Signal Declaration warning at RFID_RC522.vhd(9): used implicit default value for signal "sck" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at RFID_RC522.vhd(10): used implicit default value for signal "mosi" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (12161): Node "RFID_RC522:inst_RFID_RC522|sda" is stuck at GND because node is in wire loop and does not have a source
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "identificacion_valida" is fed by GND
+Info (13036): One or more bidirs are fed by always-enabled (GND-fed) open-drain buffers
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidir "identificacion_valida" is set to GND
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13012): Latch DetectorVehicular:inst_DetectorVehicular|distancia_actual[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal DetectorVehicular:inst_DetectorVehicular|vehiculo_detectado
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "barrera_entrada" is stuck at GND
+    Warning (13410): Pin "barrera_salida" is stuck at GND
+    Warning (13410): Pin "semaforo_entrada_verde" is stuck at GND
+    Warning (13410): Pin "semaforo_entrada_rojo" is stuck at VCC
+    Warning (13410): Pin "semaforo_salida_verde" is stuck at GND
+    Warning (13410): Pin "semaforo_salida_rojo" is stuck at VCC
+    Warning (13410): Pin "total_vehiculos[0]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[1]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[2]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[3]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[4]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[5]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[6]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[7]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[8]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[9]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[10]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[11]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[12]" is stuck at GND
+    Warning (13410): Pin "total_vehiculos[13]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[0]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[1]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[2]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[3]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[4]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[5]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[6]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[7]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[8]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[9]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[10]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[11]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[12]" is stuck at GND
+    Warning (13410): Pin "tiempo_paso_ultimo_vehiculo[13]" is stuck at GND
+    Warning (13410): Pin "display_output[2]" is stuck at GND
+    Warning (13410): Pin "display_output[3]" is stuck at GND
+    Warning (13410): Pin "display_output[4]" is stuck at GND
+    Warning (13410): Pin "display_output[5]" is stuck at GND
+    Warning (13410): Pin "display_output[6]" is stuck at GND
+    Warning (13410): Pin "lcd_data[6]" is stuck at GND
+    Warning (13410): Pin "lcd_data[7]" is stuck at GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+    Warning (13410): Pin "categoria_vehiculo[0]" is stuck at GND
+    Warning (13410): Pin "categoria_vehiculo[1]" is stuck at GND
+    Warning (13410): Pin "categoria_vehiculo[2]" is stuck at GND
+    Warning (13410): Pin "categoria_vehiculo[3]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 67 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "tag_identificacion"
+Info (21057): Implemented 212 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 150 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 136 warnings
+    Info: Peak virtual memory: 4664 megabytes
+    Info: Processing ended: Tue May 14 17:50:20 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
+
+

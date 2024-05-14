@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun May 12 16:30:44 2024
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : PantallaLcd
+Top-level Entity Name : PantallaLcd
+Family : Cyclone III
+Device : EP3C16F484C6
+Timing Models : Final
+Total logic elements : 41 / 15,408 ( < 1 % )
+    Total combinational functions : 41 / 15,408 ( < 1 % )
+    Dedicated logic registers : 28 / 15,408 ( < 1 % )
+Total registers : 28
+Total pins : 21 / 347 ( 6 % )
+Total virtual pins : 0
+Total memory bits : 0 / 516,096 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

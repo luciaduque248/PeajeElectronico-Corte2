@@ -1,0 +1,66 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity OLED is
+    port (
+        clk: in std_logic;
+        rst: in std_logic;
+        sda: out std_logic;
+        scl: out std_logic
+    );
+end entity OLED;
+
+architecture OLED_arch of OLED is
+    -- Declaración de constantes para la configuración del protocolo I2C
+    constant DELAY_COUNT: integer := 100;  -- Contador de retardo para el protocolo I2C
+    constant I2C_DELAY: integer := 10;     -- Retardo entre pulsos de reloj para el protocolo I2C
+
+    -- Señales internas
+    signal i2c_delay_counter: integer range 0 to DELAY_COUNT := 0;
+    signal sda_reg, scl_reg: std_logic := '1';  -- Inicialmente, los pines SDA y SCL se establecen en alto
+
+begin
+    -- Proceso para generar la señal de reloj para el protocolo I2C
+    i2c_clock_process: process(clk)
+    begin
+        if rising_edge(clk) then
+            if i2c_delay_counter = I2C_DELAY then
+                i2c_delay_counter <= 0;
+                sda <= sda_reg;
+                scl <= scl_reg;
+            else
+                i2c_delay_counter <= i2c_delay_counter + 1;
+                sda <= 'Z';  -- Mantener la línea SDA en alta impedancia cuando no se esté transmitiendo
+                scl <= '1';  -- Mantener la línea SCL en alto cuando no se esté transmitiendo
+            end if;
+        end if;
+    end process i2c_clock_process;
+
+    -- Proceso para manejar la lógica de transmisión I2C
+    i2c_transmit_process: process(clk)
+    begin
+        if rising_edge(clk) then
+            if i2c_delay_counter = 0 then
+                -- Aquí implementa la lógica para la transmisión I2C según tus necesidades
+                -- Puedes usar registros para mantener el estado de los pines SDA y SCL durante la transmisión
+                -- Por simplicidad, este ejemplo solo muestra cómo mantener los pines en alto cuando no se está transmitiendo
+            end if;
+        end if;
+    end process i2c_transmit_process;
+
+    -- Proceso de reinicio
+    reset_process: process(clk, rst)
+    begin
+        if rst = '1' then
+            -- Reiniciar las señales y los contadores en caso de un pulso de reset
+            i2c_delay_counter <= 0;
+            sda_reg <= '1';
+            scl_reg <= '1';
+        elsif rising_edge(clk) then
+            -- Mantener las señales en sus estados actuales durante el reinicio
+            sda_reg <= sda;
+            scl_reg <= scl;
+        end if;
+    end process reset_process;
+
+end architecture OLED_arch;
